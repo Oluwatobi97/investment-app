@@ -6,7 +6,7 @@ import { Signup } from "../views/auth/Signup";
 import Home from "../pages/Home";
 import ProtectedRoutes from "../lib/ProtectedRoutes";
 import CreatePlans from "../views/create-plans/CreatePlans";
-import { PreviewPlan } from "../views/PreviewPlan";
+import { PreviewPlan } from "../views/create-plans/PreviewPlan";
 
 export const AllRoutes = () => {
   return (
