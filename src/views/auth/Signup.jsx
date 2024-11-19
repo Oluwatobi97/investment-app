@@ -26,7 +26,7 @@ const useSignUpMutation = () => {
     onSuccess: async (data) => {
       if (data.status === 201) {
         setIsLoggedIn(true);
-        navigate("/#/home");
+        navigate("/Home");
       }
       if (data.status === 500) {
         setToast({ message: "user already exist", status: "error" });

@@ -15,7 +15,7 @@ export const SignupLayout = ({ children }) => {
           </div>
         </div>
         <div className="text-sm mt-5 cursor-pointer font-semibold justify-between flex gap-5">
-          <Link to={"/"}>Home</Link>
+          <Link to={"/Home"}>Home</Link>
           <Link to={"/Sign-in"}>LogIn</Link>
         </div>
       </div>

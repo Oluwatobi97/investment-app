@@ -22,7 +22,7 @@ export const AllRoutes = () => {
           }
         />
         <Route
-          path="/#/Sign-up"
+          path="/Sign-up"
           element={
             <ProtectedRoutes pageType="auth-page">
               <Signup />
@@ -30,7 +30,7 @@ export const AllRoutes = () => {
           }
         />
         <Route
-          path="/#/"
+          path="/Home"
           element={
             <ProtectedRoutes pageType="app-page">
               <Home />
@@ -38,7 +38,7 @@ export const AllRoutes = () => {
           }
         />
         <Route
-          path="/#/create-plans"
+          path="/create-plans"
           element={
             <ProtectedRoutes pageType="app-page">
               <CreatePlans />
@@ -46,7 +46,7 @@ export const AllRoutes = () => {
           }
         />
         <Route
-          path="/#/preview-plan"
+          path="/preview-plan"
           element={
             <ProtectedRoutes pageType="app-page">
               <PreviewPlan />

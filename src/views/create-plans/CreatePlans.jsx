@@ -48,7 +48,7 @@ const CreatePlans = () => {
       "Tempoary-plan-creation",
       JSON.stringify({ ...data, amount: parseInt(amount) })
     );
-    navigate("/#/preview-plan");
+    navigate("/preview-plan");
   };
   return (
     <AuthLayout>

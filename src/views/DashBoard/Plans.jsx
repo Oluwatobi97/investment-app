@@ -29,7 +29,7 @@ const NoProductCmp = () => {
       <div className="text-xl font-semibold mt-8 text-center text-gray-800">
         <h1>You Do Not Have Any Active Investment Plan</h1>
       </div>
-      <Linkbuttons path={"/#/create-plans"} className={""}>
+      <Linkbuttons path={"/create-plans"} className={""}>
         Create Plans
       </Linkbuttons>
     </div>
@@ -40,7 +40,7 @@ export const Plans = ({ data }) => {
     <div className="w-full">
       <div className="flex items-center justify-between  mb-10">
         <h1 className="capitalize text-2xl">Investment Plans</h1>
-        <Linkbuttons path={"/#/create-plans"} className={"border p-3"}>
+        <Linkbuttons path={"/create-plans"} className={"border p-3"}>
           Create Plans
         </Linkbuttons>
       </div>

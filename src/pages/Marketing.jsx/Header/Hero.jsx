@@ -22,7 +22,7 @@ const Hero = () => {
             </h1>
           </div>
           <div className="flex justify-center mt-10">
-            <Link to={"/#/Sign-up"}>
+            <Link to={"/#/"}>
               <AllButton
                 buttonName="Sign Up"
                 loading={false}

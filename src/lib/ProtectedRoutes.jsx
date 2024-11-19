@@ -10,11 +10,11 @@ const ProtectedRoutes = ({ pageType, children }) => {
   useEffect(() => {
     if (pageType === "auth-page") {
       if (isLoggedIn) {
-        naviagate("#/home");
+        naviagate("/Home");
       }
     } else {
       if (!isLoggedIn) {
-        naviagate("#/Sign-in");
+        naviagate("/Sign-in");
       }
     }
   }, [context.isLoggedIn]);

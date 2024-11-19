@@ -47,7 +47,7 @@ export const UserContextProvider = ({ children }) => {
   const logOut = async () => {
     await ApiRequest.GET("auth-system/log-out");
     setIsLoggedIn(false);
-    navigate("#/Sign-in");
+    navigate("/Sign-in");
   };
   return (
     <userContext.Provider

@@ -23,7 +23,7 @@ const useSignInMutation = () => {
       console.log(data);
       if (data.status === 200) {
         setIsLoggedIn(true);
-        navigate("/#/home");
+        navigate("/Home");
       }
 
       if (data.status === 401) {
