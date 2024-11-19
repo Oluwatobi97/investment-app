@@ -20,7 +20,7 @@ export const NavBar = () => {
           </ul>
         </div>
         <div>
-          <Link to={"Sign-in"}>
+          <Link to={"/#/Sign-in"}>
             <AllButton
               buttonName="Sign In"
               loading={false}

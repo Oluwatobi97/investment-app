@@ -1,61 +1,61 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { Marketing } from '../hooks/Marketing'
-import { Signin } from '../views/auth/Signin'
-import { Signup } from '../views/auth/Signup'
-import Home from '../pages/Home'
-import ProtectedRoutes from '../lib/ProtectedRoutes'
-import CreatePlans from '../views/create-plans/CreatePlans'
-import { PreviewPlan } from '../views/create-plans/PreviewPlan'
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import { Marketing } from "../hooks/Marketing";
+import { Signin } from "../views/auth/Signin";
+import { Signup } from "../views/auth/Signup";
+import Home from "../pages/Home";
+import ProtectedRoutes from "../lib/ProtectedRoutes";
+import CreatePlans from "../views/create-plans/CreatePlans";
+import { PreviewPlan } from "../views//PreviewPlan";
 
 export const AllRoutes = () => {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Marketing />} />
+        <Route path="/" element={<Marketing />} />
         <Route
-          path='/Sign-in'
+          path="/#/Sign-in"
           element={
-            <ProtectedRoutes pageType='auth-page'>
+            <ProtectedRoutes pageType="auth-page">
               <Signin />
             </ProtectedRoutes>
-					}
-				/>
+          }
+        />
         <Route
-          path='/Sign-up'
+          path="/#/Sign-up"
           element={
-            <ProtectedRoutes pageType='auth-page'>
+            <ProtectedRoutes pageType="auth-page">
               <Signup />
             </ProtectedRoutes>
-					}
-				/>
+          }
+        />
         <Route
-          path='/Home'
+          path="/#/"
           element={
-            <ProtectedRoutes pageType='app-page'>
+            <ProtectedRoutes pageType="app-page">
               <Home />
             </ProtectedRoutes>
-					}
-				/>
+          }
+        />
         <Route
-          path='/create-plans'
+          path="/#/create-plans"
           element={
-            <ProtectedRoutes pageType='app-page'>
+            <ProtectedRoutes pageType="app-page">
               <CreatePlans />
             </ProtectedRoutes>
-					}
-				/>
+          }
+        />
         <Route
-          path='/preview-plan'
+          path="/#/preview-plan"
           element={
-            <ProtectedRoutes pageType='app-page'>
+            <ProtectedRoutes pageType="app-page">
               <PreviewPlan />
             </ProtectedRoutes>
-					}
-				/>
+          }
+        />
       </Routes>
     </div>
-  )
-}
+  );
+};
 
-export default AllRoutes
+export default AllRoutes;

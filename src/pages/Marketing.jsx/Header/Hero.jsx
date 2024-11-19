@@ -22,19 +22,16 @@ const Hero = () => {
             </h1>
           </div>
           <div className="flex justify-center mt-10">
-            <Link to={"/Sign-up"}>
+            <Link to={"/#/Sign-up"}>
               <AllButton
                 buttonName="Sign Up"
                 loading={false}
                 classname="bg-blue-600 hover:bg-blue-700  py-4  mt-7 px-8"
-              />{" "}
+              />
             </Link>
           </div>
         </div>
       </div>
-
-      {/* <CircleDot className="absolute" /> */}
-      {/* <DotIcon className="absolute" /> */}
     </div>
   );
 };
