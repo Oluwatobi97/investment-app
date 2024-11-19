@@ -14,7 +14,7 @@ export const AllRoutes = () => {
       <Routes>
         <Route path="/" element={<Marketing />} />
         <Route
-          path="#/Sign-in"
+          path="/Sign-in"
           element={
             <ProtectedRoutes pageType="auth-page">
               <Signin />
