@@ -16,7 +16,7 @@ const CookieBanner = () => {
     setShowCookieBanner(false);
   };
 
-  if (showCookieBanner) return null;
+  //   if (showCookieBanner) return null;
   return (
     <div className="fixed bottom-0 w-full bg-gray-900 text-white p-4 shadow-lg z-50">
       <div className="container mx-auto flex items-center justify-between">
