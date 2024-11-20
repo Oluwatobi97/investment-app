@@ -10,9 +10,11 @@ const pathWithBaseUrl = (path) => {
 
 const getHeaders = () => {
   const token = localStorage.getItem("token");
+  console.log(localStorage.getItem("cookieConcent"));
   const headers = {
     "Content-Type": "application/json",
-    "Authorization":`Bearer ${token}`
+    Authorization: `Bearer ${token}`,
+    "cookie-consent": localStorage.getItem("cookieConcent") ? "true" : "false",
   };
 
   return headers;

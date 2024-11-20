@@ -29,16 +29,13 @@ const useGetUserDetails = (isLoggedIn) => {
 
   useEffect(() => {
     fetchLoggedInUser(isLoggedIn);
-    localStorage.setItem(STORAGE_KEY, isLoggedIn);
   }, [isLoggedIn]);
   return userDetails;
 };
 
 export const UserContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem(STORAGE_KEY)
-      ? localStorage.getItem(STORAGE_KEY)
-      : false
+    localStorage.getItem(USER_STORAGE_KEY) ? true : false
   );
   const navigate = useNavigate();
 
