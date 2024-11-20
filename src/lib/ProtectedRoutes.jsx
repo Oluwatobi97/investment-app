@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import { useUserContext } from "../context/userContext/UserContext";
 
 const ProtectedRoutes = ({ pageType, children }) => {
@@ -10,11 +10,11 @@ const ProtectedRoutes = ({ pageType, children }) => {
   useEffect(() => {
     if (pageType === "auth-page") {
       if (isLoggedIn) {
-        naviagate("/Home");
+        redirect("/Home");
       }
     } else {
       if (!isLoggedIn) {
-        naviagate("/Sign-in");
+        redirect("/Sign-in");
       }
     }
   }, [context.isLoggedIn]);
