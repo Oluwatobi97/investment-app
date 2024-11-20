@@ -11,10 +11,21 @@ import { ApiRequest } from "../../lib/data/makeRequest";
 import { ToatMessage, useToast } from "../../components/ToatMessage";
 import { useUserContext } from "../../context/userContext/UserContext";
 
+export const useAuthenticate = () => {
+  const { setIsLoggedIn } = useUserContext();
+  const navigate = useNavigate();
+
+  const authenticate = (token) => {
+    setIsLoggedIn(true);
+    localStorage.setItem("token", JSON.stringify(data.token));
+    navigate("/Home");
+  };
+  return authenticate;
+};
+
 const useSignInMutation = () => {
   const { setToast, toast, dismissToast } = useToast();
-  const navigate = useNavigate();
-  const { setIsLoggedIn } = useUserContext();
+  const authenticate = useAuthenticate();
   const mutate = useMutation({
     mutationFn: async (data) => {
       return await ApiRequest.POST("auth-system/login", data);
@@ -22,8 +33,7 @@ const useSignInMutation = () => {
     onSuccess: async (data) => {
       console.log(data);
       if (data.status === 200) {
-        setIsLoggedIn(true);
-        navigate("/Home");
+        authenticate(data.token);
       }
 
       if (data.status === 401) {

@@ -10,14 +10,14 @@ import { ToatMessage, useToast } from "../../components/ToatMessage";
 import AuthLayout from "./AuthLayout";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../../context/userContext/UserContext";
+import { useAuthenticate } from "./Signin";
 
 // find a better way to do this
 
 // hndle errors properly
 const useSignUpMutation = () => {
   const { setToast, toast, dismissToast } = useToast();
-  const navigate = useNavigate();
-  const { setIsLoggedIn } = useUserContext();
+  const authenticate = useAuthenticate();
 
   const mutate = useMutation({
     mutationFn: async (data) => {
@@ -25,8 +25,7 @@ const useSignUpMutation = () => {
     },
     onSuccess: async (data) => {
       if (data.status === 201) {
-        setIsLoggedIn(true);
-        navigate("/Home");
+        authenticate(data.token);
       }
       if (data.status === 500) {
         setToast({ message: "user already exist", status: "error" });
