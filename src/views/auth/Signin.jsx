@@ -17,7 +17,7 @@ export const useAuthenticate = () => {
 
   const authenticate = (token) => {
     setIsLoggedIn(true);
-    localStorage.setItem("token", JSON.stringify(data.token));
+    localStorage.setItem("token", JSON.stringify(token));
     navigate("/Home");
   };
   return authenticate;
