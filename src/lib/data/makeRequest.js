@@ -9,8 +9,10 @@ const pathWithBaseUrl = (path) => {
 };
 
 const getHeaders = () => {
+  const token = localStorage.getItem("token");
   const headers = {
     "Content-Type": "application/json",
+    "authorizattion" `Bearer ${token}`
   };
 
   return headers;
