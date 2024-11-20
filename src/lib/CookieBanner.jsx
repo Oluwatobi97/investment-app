@@ -3,16 +3,16 @@ import React, { useEffect, useState } from "react";
 const CookieBanner = () => {
   const [showCookieBanner, setShowCookieBanner] = useState(false);
 
-  const handleConsent = (allowCookies) => {
-    localStorage.setItem("cookieConcent", JSON.stringify(allowCookies));
-    setShowCookieBanner(false);
-  };
   useEffect(() => {
     if (localStorage.getItem("cookieConcent") === null) {
       setShowCookieBanner(true);
     }
   }, []);
 
+  const handleConsent = (allowCookies) => {
+    localStorage.setItem("cookieConcent", JSON.stringify(allowCookies));
+    setShowCookieBanner(false);
+  };
   if (!showCookieBanner) return null;
   return (
     <div className="fixed bottom-0 w-full bg-gray-900 text-white p-4 shadow-lg z-50">
