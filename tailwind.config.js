@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const borderGradient = require("tailwindcss-border-gradient-radius");
+// const borderGradient = require("tailwindcss-border-gradient-radius");
 export default {
   content: [
     "./index.html", // Root HTML file for Vite
@@ -25,5 +25,5 @@ export default {
       },
     },
   },
-  plugins: [borderGradient],
+  plugins: [],
 };
