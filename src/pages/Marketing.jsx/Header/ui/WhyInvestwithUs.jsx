@@ -6,7 +6,7 @@ const WhyInvestwithUs = () => {
       <h1 className="capitalize text-white text-3xl font-bold mb-10 text-center ">
         why invest with us
       </h1>
-      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="max-w-6xl mx-auto sm:px-10 md:px-0 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-surface p-6 rounded-lg shadow-lg">
           <h3 class="text-accent text-2xl font-bold mb-2">
             Secure Investments
