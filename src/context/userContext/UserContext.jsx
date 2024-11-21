@@ -20,7 +20,10 @@ const useGetUserDetails = (isLoggedIn) => {
     if (isLoggedIn) {
       const queryParams = new URLSearchParams({ token: token });
       const token = localStorage.getItem("token");
-      console.log(`auth-system/authenticated-user?${queryParams.toString()}`);
+      console.log(
+        `auth-system/authenticated-user?${queryParams.toString()}`,
+        "hello"
+      );
       const result = await ApiRequest.GET(
         `auth-system/authenticated-user?${queryParams.toString()}`
       );
