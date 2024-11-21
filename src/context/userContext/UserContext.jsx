@@ -16,10 +16,10 @@ const useGetUserDetails = (isLoggedIn) => {
       ? JSON.parse(localStorage.getItem(USER_STORAGE_KEY))
       : null
   );
-  const token = localStorage.getItem("token");
-  const queryParams = new URLSearchParams({ token: JSON.stringify(token) });
   const fetchLoggedInUser = async () => {
     if (isLoggedIn) {
+      const queryParams = new URLSearchParams({ token: token });
+      const token = localStorage.getItem("token");
       const result = await ApiRequest.GET(
         `auth-system/authenticated-user?${queryParams.toString()}`
       );
