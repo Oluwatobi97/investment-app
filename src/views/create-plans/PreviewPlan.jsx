@@ -43,7 +43,7 @@ export const PreviewPlan = () => {
     <div>
       <div className="absolute top-12 left-[30%] ">
         <Linkbuttons
-          path={"/#/home"}
+          path={"/Home"}
           className={"flex items-center gap-2 mb-2"}
         >
           <SquareArrowLeft />
@@ -65,7 +65,7 @@ export const PreviewPlan = () => {
           </div>
         </div>
         <div className=" flex items-center gap-20">
-          <Linkbuttons className={"border w-64 h-10"} path={"/#/create-plans"}>
+          <Linkbuttons className={"border w-64 h-10"} path={"/create-plans"}>
             Cancel{" "}
           </Linkbuttons>
           <button className="border w-64 h-10" onClick={() => setPopUp(true)}>

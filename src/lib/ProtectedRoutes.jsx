@@ -4,16 +4,17 @@ import { useUserContext } from "../context/userContext/UserContext";
 
 const ProtectedRoutes = ({ pageType, children }) => {
   const context = useUserContext();
+  const naviagate = useNavigate();
 
   const isLoggedIn = JSON.parse(context.isLoggedIn);
   useEffect(() => {
     if (pageType === "auth-page") {
       if (isLoggedIn) {
-        redirect("/Home");
+        naviagate("/Home");
       }
     } else {
       if (!isLoggedIn) {
-        redirect("/Sign-in");
+        navigate("/Sign-in");
       }
     }
   }, [context.isLoggedIn]);

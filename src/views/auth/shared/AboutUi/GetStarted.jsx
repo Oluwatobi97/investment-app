@@ -23,7 +23,10 @@ export const GetStarted = () => {
         </h1>
         <div className="md:flex flex-cols-1 justify-between gap-3  space-y-6 items-center mt-44">
           {howToGetStarted.map((started, index) => (
-            <div className="border p-3 w-[300px] text-white rounded-lg text-xl bg-blue-600">
+            <div
+              key={index}
+              className="border p-3 w-[300px] text-white rounded-lg text-xl bg-blue-600"
+            >
               <p>{started.number}</p>
               <p>{started.started}</p>
             </div>
