@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/userContext/UserContext";
 
 const ProtectedRoutes = ({ pageType, children }) => {

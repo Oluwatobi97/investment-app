@@ -3,7 +3,7 @@ import React from "react";
 const BenefitsOfUsingFredralInves = () => {
   return (
     <section class="bg-gradient-to-br from-white to-background  mb-16 py-12 mt-10">
-      <div class="bg-gradient-to-br sm:px-10 md:px-0 from-background to-white  mx-auto p-8 rounded-lg shadow-lg">
+      <div class="bg-gradient-to-br sm:px-10 md:px-auto from-background to-white  mx-auto p-8 rounded-lg shadow-lg">
         <h2 class="text-primary text-3xl font-bold mb-4">
           Benefits of Using CryptoNest
         </h2>
