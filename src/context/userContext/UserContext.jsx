@@ -20,9 +20,7 @@ const useGetUserDetails = (isLoggedIn) => {
   const queryParams = new URLSearchParams({ token: JSON.stringify(token) });
   const fetchLoggedInUser = async () => {
     if (isLoggedIn) {
-      const result = await ApiRequest.GET(
-        `auth-system/authenticated-user?${queryParams.toString()}`
-      );
+      const result = await ApiRequest.GET(`auth-system/authenticated-user`);
 
       console.log(`auth-system/authenticated-user?${queryParams.toString()}`);
       // setUserDetails({ ...result })
