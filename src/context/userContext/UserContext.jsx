@@ -18,8 +18,8 @@ const useGetUserDetails = (isLoggedIn) => {
   );
   const fetchLoggedInUser = async () => {
     if (isLoggedIn) {
-      const queryParams = new URLSearchParams({ token: token });
       const token = localStorage.getItem("token");
+      const queryParams = new URLSearchParams({ token: token });
       console.log(
         `auth-system/authenticated-user?${queryParams.toString()}`,
         "hello"
