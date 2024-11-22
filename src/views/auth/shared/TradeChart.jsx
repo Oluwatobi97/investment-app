@@ -17,7 +17,7 @@ export const Trading = () => {
       showSymbolLogo: true,
       showFloatingTooltip: false,
       width: "100%",
-      height: "10%",
+      height: "100%",
       tabs: [
         {
           title: "Crypto",
