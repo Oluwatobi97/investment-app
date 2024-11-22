@@ -30,7 +30,7 @@ export const Dash = () => {
               {isOpened ? <Eye size={20} /> : <EyeClosed size={20} />}
             </button>
           </div>
-          {isOpened ? <div> $1000.00</div> : <div>****</div>}
+          {isOpened ? <div>{totalAmount}</div> : <div>****</div>}
         </div>
       </div>
 

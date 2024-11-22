@@ -48,6 +48,10 @@ export const NavBar = () => {
   const email = userContext.userDetails?.email;
   const navList = [
     {
+      linkName: email || "",
+      to: "#",
+    },
+    {
       linkName: "Settings",
       to: "#",
     },

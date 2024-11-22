@@ -59,8 +59,8 @@ export const PreviewPlan = () => {
               </div>
             </div>
           </div>
-          <div className="py-10 px-5 md:px-[350px]">
-            <div className="flex flex-col  gap-5">
+          <div className="py-10 px-10 md:px-[350px]">
+            <div className="flex flex-col gap-5">
               <button
                 className="border w-64 h-10 bg-blue-600 rounded-lg text-white font-bold"
                 onClick={() => setPopUp(true)}
@@ -87,7 +87,9 @@ export const PreviewPlan = () => {
       <ToatMessage
         dismissToast={dismissToast}
         toast={toast}
-        className={"absolute top-0 left-[45%]   bg-background  z-10 "}
+        className={
+          "absolute top-0 left-[20%] md:left-[45%]   bg-background  z-10 "
+        }
       />
     </div>
   );
