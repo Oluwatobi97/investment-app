@@ -88,7 +88,7 @@ export const PreviewPlan = () => {
         dismissToast={dismissToast}
         toast={toast}
         className={
-          "absolute top-0 left-[20%] md:left-[45%]   bg-background  z-10 "
+          "absolute top-0 left-[25%] mt-5 md:left-[45%]   bg-background  z-10 "
         }
       />
     </div>

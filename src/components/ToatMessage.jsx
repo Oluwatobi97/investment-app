@@ -29,11 +29,11 @@ export const ToatMessage = ({ toast, dismissToast, className }) => {
   };
   return (
     <div className={className}>
-      <div className="border    font-bold rounded-md">
+      <div className="border   px-2 font-bold rounded-md">
         <div
           className={` ${getToastColor()} flex items-center gap-10 justify-between p-3 capitalize text-center text-sm`}
         >
-          {toast.message} hello
+          {toast.message}
           <X size={18} onClick={dismissToast} />
         </div>
       </div>

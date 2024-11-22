@@ -38,7 +38,7 @@ const NoProductCmp = () => {
 };
 export const Plans = ({ data }) => {
   return (
-    <div className="w-full max-w-7xl">
+    <div className="w-full max-w-7xl px-5">
       <div className="flex items-start md:items-center gap-2 flex-col md:flex-row  justify-between  mb-10">
         <h1 className="capitalize text-2xl">Investment Plans</h1>
         <Linkbuttons
