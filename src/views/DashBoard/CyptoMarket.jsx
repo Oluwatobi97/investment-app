@@ -3,7 +3,7 @@ import Trading from "../auth/shared/TradeChart";
 
 export const CyptoMarket = () => {
   return (
-    <div className="h-screen ">
+    <div className="h-auto">
       <Trading />
     </div>
   );
