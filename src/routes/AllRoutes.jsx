@@ -30,7 +30,7 @@ export const AllRoutes = () => {
           }
         />
         <Route
-          path="/Home"
+          path="/home"
           element={
             <ProtectedRoutes pageType="app-page">
               <Home />

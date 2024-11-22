@@ -11,6 +11,7 @@ const FormInput = ({ error, type, placeholder, register, name, className }) => {
         register={register}
         type={type}
         className={className}
+        error={error}
       />
     </LabelAndError>
   );

@@ -1,16 +1,15 @@
-import React from 'react'
+import React from "react";
 
 export const LabelAndError = ({ name, error, children }) => {
   return (
-    <div className='flex items-start flex-col gap-5 relative'>
-      <label htmlFor={name}>
-        {name}
-      </label>
+    <div className="capitalize flex items-start flex-col gap-2 relative">
+      <label htmlFor={name}>{name}</label>
       {children}
-      {error[name] &&
-      <span className='absolute text-red-400 text-sm top-20'>
-        {error[name].message}
-      </span>}
+      {error[name] && (
+        <span className="absolute text-red-400  font-semibold text-xs top-[100%]">
+          {error[name].message}
+        </span>
+      )}
     </div>
-  )
-}
+  );
+};

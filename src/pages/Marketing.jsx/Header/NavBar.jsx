@@ -3,6 +3,7 @@ import { AllButton } from "../../../views/auth/shared/AllButton";
 import photo1 from "../../../assets/image/photo1.jpeg";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { Linkbuttons } from "../../../views/DashBoard/Plans";
 
 const navList = [
   {
@@ -19,7 +20,12 @@ const navList = [
   },
 ];
 
-const MoblieNavBar = ({ isToggled, setIsToggeled }) => {
+export const MoblieNavBar = ({
+  isToggled,
+  setIsToggeled,
+  navItem,
+  buttonCmp,
+}) => {
   return (
     <div
       className={`fixed w-full  ${
@@ -28,7 +34,7 @@ const MoblieNavBar = ({ isToggled, setIsToggeled }) => {
     >
       <div className="flex flex-col gap-20 items-center">
         <ul className="flex flex-col mt-10 gap-10 items-center md:gap-8 text-lg ">
-          {navList.map((item, index) => (
+          {navItem.map((item, index) => (
             <Link to={item.to} className="pointer">
               <li
                 className="font-semibold capitalize"
@@ -37,23 +43,20 @@ const MoblieNavBar = ({ isToggled, setIsToggeled }) => {
                 }}
                 key={index}
               >
-                {item.linkName.replace("-", " ")}
+                {item.linkName.includes("-")
+                  ? item.linkName.replace("-", " ")
+                  : item.linkName}{" "}
               </li>
             </Link>
           ))}
         </ul>
-        <div>
-          <Link to={"/Sign-in"}>
-            <AllButton
-              buttonName="Sign In"
-              loading={false}
-              classname="bg-blue-600 rounded-full  hover:bg-blue-700 text-lg"
-            />
-          </Link>
-        </div>
+        <div>{buttonCmp}</div>
       </div>
     </div>
   );
+};
+export const NavButton = ({ children }) => {
+  return children;
 };
 export const NavBar = () => {
   const [isToggled, setIsToggeled] = useState(false);
@@ -74,20 +77,35 @@ export const NavBar = () => {
           </ul>
         </div>
         <div>
-          <Link to={"/Sign-in"}>
-            <AllButton
-              buttonName="Sign In"
-              loading={false}
-              classname="bg-blue-600 rounded-full hidden md:block hover:bg-blue-700 text-lg"
-            />
-          </Link>
+          <Linkbuttons
+            path={"/Sign-in"}
+            className={
+              " hidden md:block px-4 py-2 bg-blue-600  hover:bg-blue-700 text-white font-semibold rounded-md transition-all duration-200"
+            }
+          >
+            SIGNIN
+          </Linkbuttons>
           <button
             className="md:hidden"
             onClick={() => setIsToggeled(!isToggled)}
           >
             {!isToggled ? <Menu /> : <X />}
           </button>
-          <MoblieNavBar isToggled={isToggled} setIsToggeled={setIsToggeled} />
+          <MoblieNavBar
+            isToggled={isToggled}
+            setIsToggeled={setIsToggeled}
+            navItem={navList}
+            buttonCmp={
+              <Linkbuttons
+                path={"/Sign-in"}
+                className={
+                  "  px-4 py-2 bg-blue-600  hover:bg-blue-700 text-white font-semibold rounded-md transition-all duration-200 block md:hidden text-lg"
+                }
+              >
+                SIGNIN
+              </Linkbuttons>
+            }
+          />
         </div>
       </div>
     </div>

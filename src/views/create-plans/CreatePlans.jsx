@@ -1,13 +1,14 @@
 import React from "react";
 import FormSchema from "../../design-system/form/FormSchema";
 import { useForm } from "react-hook-form";
-import AuthLayout from "../auth/AuthLayout";
+import createPlanLayout from "../../layouts/formsLayouts/CreatePlanLayout";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createPlanSchema } from "../../lib/zod-schema";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "../../components/ToatMessage";
 import { ApiRequest } from "../../lib/data/makeRequest";
 import { useNavigate } from "react-router-dom";
+import CreatePlanLayout from "../../layouts/formsLayouts/CreatePlanLayout";
 
 const coins = ["BTC", "ETH", "USDT"];
 const duration = ["1-day", "1-month", "3-month", "6-month", "1-year"];
@@ -51,7 +52,7 @@ const CreatePlans = () => {
     navigate("/preview-plan");
   };
   return (
-    <AuthLayout>
+    <CreatePlanLayout title={"Create-PLans"}>
       <FormSchema
         className={""}
         error={errors}
@@ -60,7 +61,7 @@ const CreatePlans = () => {
         //   loading={}
         register={register}
       />
-    </AuthLayout>
+    </CreatePlanLayout>
   );
 };
 

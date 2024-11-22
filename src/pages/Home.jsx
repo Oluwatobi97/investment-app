@@ -8,8 +8,8 @@ import { useQuery } from "@tanstack/react-query";
 import { ApiRequest } from "../lib/data/makeRequest";
 
 function Home() {
-  const context = useUserContext();
-  const naviage = useNavigate();
+  // const context = useUserContext();
+  // const naviage = useNavigate();
 
   //   useEffect(
   // 		() => {
@@ -21,7 +21,7 @@ function Home() {
   // 	)
 
   return (
-    <div className="p-6">
+    <div className="">
       <SideBar />
       <Dash />
       <CyptoMarket />

@@ -4,7 +4,7 @@ import { ToatMessage, useToast } from "../../components/ToatMessage";
 import { useMutation } from "@tanstack/react-query";
 import { ApiRequest } from "../../lib/data/makeRequest";
 import { Linkbuttons } from "../DashBoard/Plans";
-import { SquareArrowLeft } from "lucide-react";
+import BackButton from "../../components/BackButton";
 
 const useCreatePlanMutation = () => {
   const { setToast, toast, dismissToast } = useToast();
@@ -40,37 +40,43 @@ export const PreviewPlan = () => {
     setPopUp(false);
   };
   return (
-    <div>
-      <div className="absolute top-12 left-[30%] ">
-        <Linkbuttons
-          path={"/Home"}
-          className={"flex items-center gap-2 mb-2"}
-        >
-          <SquareArrowLeft />
-          <p>Go Back To Home</p>
-        </Linkbuttons>
-        <div className="border p-10 mb-16">
+    <div className="h-screen">
+      <div className=" max-w-5xl m-auto py-10">
+        <BackButton />
+        <div className="max-w-5xl px-10 py-10 border p-10 mb-16">
           <div className="flex flex-col items-center">
-            <h1 className="text-2xl font-semibold pb-10 tracking-tighter">
-              Preview Plan
-            </h1>
-            <div className="flex flex-col items-center gap-10">
-              <p>plan-type: {planDetails.planType}</p>
-              <p>type of coin: {planDetails.coinsType}</p>
-              <p>
-                duration: {planDetails.investMentDuration.replace("-", " ")}
-              </p>
-              <p>Amount: ${planDetails.amount}</p>
+            <div className="flex flex-col items-center">
+              <h1 className="text-2xl font-semibold pb-10 tracking-tighter">
+                Preview Plan
+              </h1>
+              <div className="flex flex-col items-center gap-10">
+                <p>plan-type: {planDetails.planType}</p>
+                <p>type of coin: {planDetails.coinsType}</p>
+                <p>
+                  duration: {planDetails.investMentDuration.replace("-", " ")}
+                </p>
+                <p>Amount: ${planDetails.amount}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className=" flex items-center gap-20">
-          <Linkbuttons className={"border w-64 h-10"} path={"/create-plans"}>
-            Cancel{" "}
-          </Linkbuttons>
-          <button className="border w-64 h-10" onClick={() => setPopUp(true)}>
-            Continue to pay
-          </button>
+          <div className="py-10 px-5 md:px-[350px]">
+            <div className="flex flex-col  gap-5">
+              <button
+                className="border w-64 h-10 bg-blue-600 rounded-lg text-white font-bold"
+                onClick={() => setPopUp(true)}
+              >
+                Continue to pay
+              </button>
+              <Linkbuttons
+                className={
+                  "border bg-red-600 rounded-lg w-64 h-10 text-white font-bold"
+                }
+                path={"/create-plans"}
+              >
+                Cancel{" "}
+              </Linkbuttons>
+            </div>
+          </div>
         </div>
       </div>
       <PopupCmp
@@ -81,7 +87,7 @@ export const PreviewPlan = () => {
       <ToatMessage
         dismissToast={dismissToast}
         toast={toast}
-        className={"absolute top-0 left-[50%%] bg-gray w-full z-10 "}
+        className={"absolute top-0 left-[45%]   bg-background  z-10 "}
       />
     </div>
   );

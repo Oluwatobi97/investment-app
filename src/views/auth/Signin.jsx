@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { SIGNIN_FIELDS } from "./shared/constant";
-import AuthLayout from "./AuthLayout";
+import AuthLayout from "../../layouts/formsLayouts/AuthLayout";
 import FormSchema from "../../design-system/form/FormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userSchema } from "../../lib/zod-schema";

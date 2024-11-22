@@ -5,7 +5,7 @@ import Main from "../layouts/Main";
 
 export const Marketing = () => {
   return (
-    <div className="max-w-7xl  m-auto">
+    <div className="max-w-7xl bg-gray-50  m-auto">
       <Header />
       <Main />
 
