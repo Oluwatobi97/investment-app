@@ -8,5 +8,3 @@ export const CyptoMarket = () => {
     </div>
   );
 };
-
-export default CyptoMarket;
