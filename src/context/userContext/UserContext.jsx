@@ -16,6 +16,7 @@ const useGetUserDetails = (isLoggedIn) => {
       ? JSON.parse(localStorage.getItem(USER_STORAGE_KEY))
       : null
   );
+  const navigate = useNavigate();
   const fetchLoggedInUser = async () => {
     if (isLoggedIn) {
       const token = localStorage.getItem("token");
@@ -23,7 +24,10 @@ const useGetUserDetails = (isLoggedIn) => {
       const result = await ApiRequest.GET(
         `auth-system/authenticated-user?${queryParams.toString()}`
       );
-      console.log(result);
+
+      if (result.message === "un-Authorized") {
+        navigate("/Sign-in");
+      }
       // setUserDetails({ ...result })
       localStorage.setItem(USER_STORAGE_KEY, JSON.stringify({ ...result }));
       return;
