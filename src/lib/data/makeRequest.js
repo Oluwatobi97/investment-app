@@ -1,8 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../../context/userContext/UserContext";
 
 const BASE_URL = "https://backend-servcie-xzye.onrender.com/api/v1/";
 
 // DESIGN PATTERN SOLVING A DESIGN PROBLEM
+
+const signOut = () => {
+  const { setIsLoggedIn } = useUserContext();
+  setIsLoggedIn(false);
+  window.location.replace("#/Sign-in");
+  console.log("checking");
+};
+
 const pathWithBaseUrl = (path) => {
   if (path.includes("http")) {
     return path;
@@ -31,8 +39,7 @@ const handleRequestError = async (response, errorMessage) => {
 
   const error = await response.json();
   if (response.status === 401) {
-    window.location.replace("#/Sign-in");
-    console.log("checking");
+    signOut();
   }
   return error;
 };

@@ -16,7 +16,6 @@ const useGetUserDetails = (isLoggedIn) => {
       ? JSON.parse(localStorage.getItem(USER_STORAGE_KEY))
       : null
   );
-  const navigate = useNavigate();
   const fetchLoggedInUser = async () => {
     if (isLoggedIn) {
       const token = localStorage.getItem("token");
