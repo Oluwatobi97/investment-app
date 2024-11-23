@@ -33,6 +33,7 @@ const handleRequestError = async (response, errorMessage) => {
   console.log(error);
   if (response.status === 401) {
     window.location.replace("/Sign-in");
+    console.log("there was an error");
   }
 
   return error;
