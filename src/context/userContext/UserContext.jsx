@@ -25,7 +25,7 @@ const useGetUserDetails = (isLoggedIn) => {
       );
 
       // setUserDetails({ ...result })
-
+      console.log(result);
       localStorage.setItem(USER_STORAGE_KEY, JSON.stringify({ ...result }));
 
       return;
@@ -41,7 +41,7 @@ const useGetUserDetails = (isLoggedIn) => {
 
 export const UserContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem(USER_STORAGE_KEY) ? true : false
+    JSON.parse(localStorage.getItem(USER_STORAGE_KEY)) ? true : false
   );
   const navigate = useNavigate();
 
