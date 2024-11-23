@@ -61,7 +61,7 @@ export const UserContextProvider = ({ children }) => {
     if (!isLoggedIn) {
       navigate("/Sign-in");
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, navigate]);
   return (
     <userContext.Provider
       value={{
