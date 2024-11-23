@@ -62,6 +62,7 @@ export const ApiRequest = {
   GET: async (path) => {
     const response = await makeRawRequest(pathWithBaseUrl(path));
     await handleRequestError(response, "error");
+    console.log("this is to check commit");
     return await response.json();
   },
   POST: async (path, data) =>
