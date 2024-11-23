@@ -25,7 +25,7 @@ const useGetUserDetails = (isLoggedIn) => {
       );
 
       // setUserDetails({ ...result })
-      console.log(result, "hello");
+      console.log(result.message === "un-Authorized");
       localStorage.setItem(USER_STORAGE_KEY, JSON.stringify({ ...result }));
 
       return;
