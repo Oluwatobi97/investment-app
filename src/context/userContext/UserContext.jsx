@@ -29,6 +29,7 @@ const useGetUserDetails = (isLoggedIn) => {
         localStorage.removeItem(USER_STORAGE_KEY);
         return;
       }
+      setUserDetails(result);
       localStorage.setItem(USER_STORAGE_KEY, JSON.stringify({ ...result }));
       return;
     }
@@ -56,12 +57,11 @@ export const UserContextProvider = ({ children }) => {
     navigate("/Sign-in");
   };
 
-  // useEffect(() => {
-  //   console.log(userDetails.message);
-  //   if (userDetails?.message === "un-Authorized") {
-  //     navigate("/Sign-in");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/Sign-in");
+    }
+  }, [isLoggedIn]);
   return (
     <userContext.Provider
       value={{
