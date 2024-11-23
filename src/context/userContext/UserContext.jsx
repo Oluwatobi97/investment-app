@@ -53,6 +53,7 @@ export const UserContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    console.log(userDetails.message);
     if (userDetails?.message === "un-Authorized") {
       navigate("/Sign-in");
     }
