@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { ApiRequest } from "../lib/data/makeRequest";
 import { BitcoinChart } from "../views/auth/shared/BitcoinChart";
+import { CyptoMarket } from "../views/DashBoard/CyptoMarket";
 
 function Home() {
   // const context = useUserContext();
@@ -25,7 +26,7 @@ function Home() {
     <div className="">
       <SideBar />
       <Dash />
-      {/* <CyptoMarket /> */}
+      <CyptoMarket />
       <BitcoinChart />
     </div>
   );
