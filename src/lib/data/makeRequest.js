@@ -38,8 +38,7 @@ const handleRequestError = async (response, errorMessage) => {
   }
 
   if (response.status === 401) {
-    console.log(localStorage.removeItem(USER_STORAGE_KEY));
-    return;
+    return null;
   }
   return response;
 };
