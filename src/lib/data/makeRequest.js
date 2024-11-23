@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 const BASE_URL = "https://backend-servcie-xzye.onrender.com/api/v1/";
 
 // DESIGN PATTERN SOLVING A DESIGN PROBLEM
@@ -23,6 +25,7 @@ const getHeaders = () => {
 // work
 
 const handleRequestError = async (response, errorMessage) => {
+  const navigate = useNavigate();
   if (response.ok) {
     return;
   }
@@ -30,7 +33,7 @@ const handleRequestError = async (response, errorMessage) => {
   const error = await response.json();
   console.log(error);
   if (response.status === 401) {
-    return error;
+    navigate("/Sign-in");
   }
 
   return error;
