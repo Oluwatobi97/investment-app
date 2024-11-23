@@ -32,7 +32,7 @@ export const BitcoinChart = () => {
   return (
     <div className="tradingview-widget-container">
       <div
-        id="tradingview-widget"
+        id="trading-view-widget"
         className="tradingview-widget-container__widget"
       ></div>
       <div className="tradingview-widget-copyright">
@@ -47,5 +47,3 @@ export const BitcoinChart = () => {
     </div>
   );
 };
-
-export default TradingViewWidget;
