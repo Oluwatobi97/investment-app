@@ -32,7 +32,7 @@ const handleRequestError = async (response, errorMessage) => {
   const error = await response.json();
   console.log(error);
   if (response.status === 401) {
-    window.location.href = "/Sign-in";
+    window.location.replace("/Sign-in");
   }
 
   return error;
