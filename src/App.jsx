@@ -8,12 +8,12 @@ function App() {
   const queryClient = new QueryClient();
   return (
     <div className="bg-gray-50">
-      <UserContextProvider>
-        <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={queryClient}>
+        <UserContextProvider>
           <AllRoutes />
           <CookieBanner />
-        </QueryClientProvider>
-      </UserContextProvider>
+        </UserContextProvider>
+      </QueryClientProvider>
     </div>
   );
 }

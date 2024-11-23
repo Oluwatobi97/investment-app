@@ -11,7 +11,7 @@ const STORAGE_KEY = "logged-in";
 const USER_STORAGE_KEY = "user-info";
 
 const useGetUserDetails = (isLoggedIn) => {
-  const [userDetails] = useState(
+  const [userDetails, setUserDetails] = useState(
     localStorage.getItem(USER_STORAGE_KEY)
       ? JSON.parse(localStorage.getItem(USER_STORAGE_KEY))
       : null
@@ -34,7 +34,7 @@ const useGetUserDetails = (isLoggedIn) => {
   useEffect(() => {
     fetchLoggedInUser(isLoggedIn);
   }, [isLoggedIn]);
-  return userDetails;
+  return { userDetails, setUserDetails };
 };
 
 export const UserContextProvider = ({ children }) => {
@@ -43,7 +43,7 @@ export const UserContextProvider = ({ children }) => {
   );
   const navigate = useNavigate();
 
-  const userDetails = useGetUserDetails(isLoggedIn);
+  const { userDetails } = useGetUserDetails(isLoggedIn);
 
   const logOut = async () => {
     await ApiRequest.GET("auth-system/log-out");
@@ -51,12 +51,12 @@ export const UserContextProvider = ({ children }) => {
     navigate("/Sign-in");
   };
 
-  // useEffect(() => {
-  //   console.log(userDetails.message);
-  //   if (userDetails?.message === "un-Authorized") {
-  //     navigate("/Sign-in");
-  //   }
-  // }, []);
+  useEffect(() => {
+    console.log(userDetails.message);
+    if (userDetails?.message === "un-Authorized") {
+      navigate("/Sign-in");
+    }
+  }, []);
   return (
     <userContext.Provider
       value={{

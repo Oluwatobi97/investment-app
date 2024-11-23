@@ -4,12 +4,12 @@ const BASE_URL = "https://backend-servcie-fa1w.onrender.com/api/v1/";
 
 // DESIGN PATTERN SOLVING A DESIGN PROBLEM
 
-const signOut = () => {
-  const { setIsLoggedIn } = useUserContext();
-  setIsLoggedIn(false);
-  window.location.replace("#/Sign-in");
-  console.log("checking");
-};
+// const signOut = () => {
+//   const { setIsLoggedIn } = useUserContext();
+//   setIsLoggedIn(false);
+//   window.location.replace("#/Sign-in");
+//   console.log("checking");
+// };
 
 const pathWithBaseUrl = (path) => {
   if (path.includes("http")) {
@@ -39,8 +39,7 @@ const handleRequestError = async (response, errorMessage) => {
 
   const error = await response.json();
   if (response.status === 401) {
-    signOut();
-    console.log(response.status);
+    return error;
   }
   return error;
 };
