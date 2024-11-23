@@ -54,10 +54,11 @@ export const UserContextProvider = ({ children }) => {
 
   useEffect(() => {
     const isAuth = JSON.parse(userDetails);
-    console.log(isAuth.message);
-    if (isAuth.message === "un-Authorized") {
-      navigate("/Sign-in");
-    }
+    console.log(isAuth);
+    // console.log(isAuth.message);
+    // if (isAuth.message === "un-Authorized") {
+    //   navigate("/Sign-in");
+    // }
   }, []);
   return (
     <userContext.Provider
