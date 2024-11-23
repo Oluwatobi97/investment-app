@@ -40,6 +40,7 @@ const handleRequestError = async (response, errorMessage) => {
   const error = await response.json();
   if (response.status === 401) {
     signOut();
+    console.log(response.status);
   }
   return error;
 };
