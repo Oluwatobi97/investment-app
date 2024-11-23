@@ -25,9 +25,6 @@ const useGetUserDetails = (isLoggedIn) => {
         `auth-system/authenticated-user?${queryParams.toString()}`
       );
 
-      if (result.message === "un-Authorized") {
-        navigate("/Sign-in");
-      }
       // setUserDetails({ ...result })
       localStorage.setItem(USER_STORAGE_KEY, JSON.stringify({ ...result }));
       return;
@@ -55,13 +52,13 @@ export const UserContextProvider = ({ children }) => {
     navigate("/Sign-in");
   };
 
-  // useEffect(() => {
-  //   const isAuth = JSON.parse(userDetails);
-  //   console.log(isAuth.message);
-  //   if (isAuth.message === "un-Authorized") {
-  //     navigate("/Sign-in");
-  //   }
-  // }, []);
+  useEffect(() => {
+    const isAuth = JSON.parse(userDetails);
+    console.log(isAuth.message);
+    if (isAuth.message === "un-Authorized") {
+      navigate("/Sign-in");
+    }
+  }, []);
   return (
     <userContext.Provider
       value={{
