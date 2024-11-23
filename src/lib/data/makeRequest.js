@@ -1,6 +1,6 @@
 import { useUserContext } from "../../context/userContext/UserContext";
 
-const BASE_URL = "https://backend-servcie-xzye.onrender.com/api/v1/";
+const BASE_URL = "https://backend-servcie-fa1w.onrender.com";
 
 // DESIGN PATTERN SOLVING A DESIGN PROBLEM
 
