@@ -59,7 +59,7 @@ export const UserContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (!isLoggedIn) {
-      navigate("/Sign-in");
+      window.location.replace("#/Sign-in");
     }
   }, [isLoggedIn, navigate]);
   return (
