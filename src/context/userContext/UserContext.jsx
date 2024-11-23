@@ -25,12 +25,15 @@ const useGetUserDetails = (isLoggedIn) => {
       );
 
       // setUserDetails({ ...result })
-      console.log(result.message === "un-Authorized");
+      if (result.message === "un-Authorized") {
+        localStorage.removeItem(USER_STORAGE_KEY);
+        return;
+      }
       localStorage.setItem(USER_STORAGE_KEY, JSON.stringify({ ...result }));
-
       return;
     }
     localStorage.removeItem(USER_STORAGE_KEY);
+    return;
   };
 
   useEffect(() => {
