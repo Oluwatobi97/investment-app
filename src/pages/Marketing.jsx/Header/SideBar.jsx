@@ -80,7 +80,7 @@ export const NavBar = () => {
               <button
                 onClick={() => userContext.logOut()}
                 className={
-                  "flex items-center justify-center px-4 py-2 bg-red-400 hover:bg-blue-700 text-white font-semibold rounded-md transition-all duration-75"
+                  "flex items-center justify-center px-4 py-2 bg-red-400 hover:bg-blue-700 text-white font-semibold rounded-md transition duration-75 ease-in-out"
                 }
               >
                 Log out
