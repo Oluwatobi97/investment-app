@@ -30,8 +30,10 @@ const handleRequestError = async (response, errorMessage) => {
   }
 
   const error = await response.json();
-  console.log(error);
-  console.log(response);
+  if (response.status === 401) {
+    window.location.replace("/Sign-in");
+    console.log("checking");
+  }
   return error;
 };
 
@@ -62,7 +64,6 @@ export const ApiRequest = {
   GET: async (path) => {
     const response = await makeRawRequest(pathWithBaseUrl(path));
     await handleRequestError(response, "error");
-    console.log("this is to check commit");
     return await response.json();
   },
   POST: async (path, data) =>
