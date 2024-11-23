@@ -37,11 +37,10 @@ const handleRequestError = async (response, errorMessage) => {
     return;
   }
 
-  const error = await response.json();
   if (response.status === 401) {
     return response;
   }
-  return error;
+  return response;
 };
 
 const makeRequest = async (method, path, data) => {
