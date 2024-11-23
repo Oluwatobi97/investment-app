@@ -60,9 +60,9 @@ export const UserContextProvider = ({ children }) => {
     if (isLoggedIn) {
       fetchUserDetails();
     } else {
-      handleLogOut();
+      logOut();
     }
-  }, [isLoggedIn, fetchUserDetails, handleLogOut]);
+  }, [isLoggedIn, fetchUserDetails, logOut]);
   return (
     <userContext.Provider
       value={{
