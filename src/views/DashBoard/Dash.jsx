@@ -16,10 +16,15 @@ const useGetAllLoggedInUserPlans = () => {
 export const Dash = () => {
   const { data } = useGetAllLoggedInUserPlans();
 
+  if (data?.message) {
+    if (data.message === "un-Authorized") {
+      return null;
+    }
+  }
+
   const [isOpened, setIsOpened] = useState(false);
 
-  console.log(data);
-  const totalAmount = data?.reduce((sum, item) => sum + item.amount, 0);
+  const totalAmount = data && data?.reduce((sum, item) => sum + item.amount, 0);
   return (
     <div className="md:p-4 p-2">
       <div className=" py-7 text-xl mb-10 md:text-3xl text-textSecondary mt-5 bg-gradient-to-tr from-blue-50  to-surface p-10">
