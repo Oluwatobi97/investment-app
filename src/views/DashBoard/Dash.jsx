@@ -16,11 +16,7 @@ const useGetAllLoggedInUserPlans = () => {
 export const Dash = () => {
   const { data } = useGetAllLoggedInUserPlans();
 
-  if (data?.message) {
-    if (data.message === "un-Authorized") {
-      return null;
-    }
-  }
+  
 
   const [isOpened, setIsOpened] = useState(false);
 
