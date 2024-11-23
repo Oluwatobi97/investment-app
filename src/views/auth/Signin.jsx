@@ -43,7 +43,7 @@ const useSignInMutation = () => {
     onError: async (error) => {
       // const result = await response.json()
       // setToast({ message: data.error, status: 'error' })
-      console.log(error);
+      console.log(error, "hello");
     },
   });
   return { mutate, toast, dismissToast };
