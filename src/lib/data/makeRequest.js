@@ -31,11 +31,7 @@ const handleRequestError = async (response, errorMessage) => {
 
   const error = await response.json();
   console.log(error);
-  if (response.status === 401) {
-    window.location.replace("/Sign-in");
-    console.log("there was an error");
-  }
-
+  console.log(response);
   return error;
 };
 
