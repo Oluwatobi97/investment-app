@@ -26,7 +26,7 @@ const useGetUserDetails = (isLoggedIn) => {
 
       // setUserDetails({ ...result })
       console.log(result);
-      localStorage.setItem(USER_STORAGE_KEY, JSON.stringify({ ...result }));
+      // localStorage.setItem(USER_STORAGE_KEY, JSON.stringify({ ...result }));
 
       return;
     }
