@@ -41,7 +41,6 @@ const handleRequestError = async (response, errorMessage) => {
     console.log(response);
     return null;
   }
-  return response;
 };
 
 const makeRequest = async (method, path, data) => {
