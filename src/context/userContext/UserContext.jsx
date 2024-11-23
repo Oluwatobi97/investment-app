@@ -60,7 +60,9 @@ export const UserContextProvider = ({ children }) => {
     if (isLoggedIn) {
       fetchUserDetails();
     } else {
+      window.location.reload();
       logOut();
+      window.location.reload();
     }
   }, [isLoggedIn, fetchUserDetails, logOut]);
   return (
