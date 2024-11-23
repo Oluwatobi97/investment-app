@@ -38,8 +38,7 @@ const handleRequestError = async (response, errorMessage) => {
   }
 
   if (response.status === 401) {
-    console.log(response);
-    return null;
+    return response;
   }
   return response;
 };

@@ -41,7 +41,7 @@ export const UserContextProvider = ({ children }) => {
         return;
       }
       setUserDetails(result);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(result));
+      localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(result));
     } catch (error) {
       console.error("Error fetching user details:", error);
       logOut();
