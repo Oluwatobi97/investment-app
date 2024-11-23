@@ -53,6 +53,7 @@ export const UserContextProvider = ({ children }) => {
     localStorage.removeItem(USER_STORAGE_KEY);
     localStorage.removeItem("token");
     navigate("/Sign-in");
+    window.location.reload();
   }, [navigate]);
 
   // Auto-fetch user details when logged in state changes
@@ -61,7 +62,6 @@ export const UserContextProvider = ({ children }) => {
       fetchUserDetails();
     } else {
       logOut();
-      window.location.reload();
     }
   }, [isLoggedIn, fetchUserDetails, logOut]);
   return (
