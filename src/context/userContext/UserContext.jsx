@@ -26,7 +26,7 @@ const useGetUserDetails = (isLoggedIn) => {
 
       // setUserDetails({ ...result })
       console.log(result);
-      // localStorage.setItem(USER_STORAGE_KEY, JSON.stringify({ ...result }));
+      localStorage.setItem(USER_STORAGE_KEY, JSON.stringify({ ...result }));
 
       return;
     }
@@ -53,12 +53,12 @@ export const UserContextProvider = ({ children }) => {
     navigate("/Sign-in");
   };
 
-  useEffect(() => {
-    console.log(userDetails.message);
-    if (userDetails?.message === "un-Authorized") {
-      navigate("/Sign-in");
-    }
-  }, []);
+  // useEffect(() => {
+  //   console.log(userDetails.message);
+  //   if (userDetails?.message === "un-Authorized") {
+  //     navigate("/Sign-in");
+  //   }
+  // }, []);
   return (
     <userContext.Provider
       value={{
