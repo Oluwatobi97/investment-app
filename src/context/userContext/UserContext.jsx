@@ -5,7 +5,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { ApiRequest } from "../../lib/data/makeRequest";
 import { useNavigate } from "react-router-dom";
 
-const userContext = createContext(undefined);
+const userContext = createContext(null);
 
 const STORAGE_KEY = "logged-in";
 const USER_STORAGE_KEY = "user-info";
@@ -47,21 +47,49 @@ export const UserContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(
     JSON.parse(localStorage.getItem(USER_STORAGE_KEY)) ? true : false
   );
+  const [userDetails, setUserDetails] = useState(() =>
+    JSON.parse(localStorage.getItem(USER_STORAGE_KEY))
+  );
   const navigate = useNavigate();
 
-  const { userDetails } = useGetUserDetails(isLoggedIn);
-
-  const logOut = async () => {
-    await ApiRequest.GET("auth-system/log-out");
-    setIsLoggedIn(false);
-    navigate("/Sign-in");
-  };
-
-  useEffect(() => {
-    if (!isLoggedIn) {
-      window.location.replace("#/Sign-in");
+  // Fetch user details when logged in
+  const fetchUserDetails = useCallback(async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        logOut();
+        return;
+      }
+      const result = await ApiRequest.GET(
+        `auth-system/authenticated-user?token=${token}`
+      );
+      if (result.message === "un-Authorized") {
+        logOut();
+        return;
+      }
+      setUserDetails(result);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(result));
+    } catch (error) {
+      console.error("Error fetching user details:", error);
+      logOut();
     }
-  }, [isLoggedIn, navigate]);
+  }, []);
+  const logOut = useCallback(() => {
+    setIsLoggedIn(false);
+    setUserDetails(null);
+    localStorage.removeItem(USER_STORAGE_KEY);
+    localStorage.removeItem("token");
+    navigate("/Sign-in");
+  }, [navigate]);
+
+  // Auto-fetch user details when logged in state changes
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchUserDetails();
+    } else {
+      handleLogOut();
+    }
+  }, [isLoggedIn, fetchUserDetails, handleLogOut]);
   return (
     <userContext.Provider
       value={{
