@@ -20,14 +20,10 @@ const useGetUserDetails = (isLoggedIn) => {
     if (isLoggedIn) {
       const token = localStorage.getItem("token");
       const queryParams = new URLSearchParams({ token: token });
-      console.log(
-        `auth-system/authenticated-user?${queryParams.toString()}`,
-        "hello"
-      );
       const result = await ApiRequest.GET(
         `auth-system/authenticated-user?${queryParams.toString()}`
       );
-
+      console.log(result);
       // setUserDetails({ ...result })
       localStorage.setItem(USER_STORAGE_KEY, JSON.stringify({ ...result }));
       return;
@@ -54,6 +50,14 @@ export const UserContextProvider = ({ children }) => {
     setIsLoggedIn(false);
     navigate("/Sign-in");
   };
+
+  // useEffect(() => {
+  //   const isAuth = JSON.parse(userDetails);
+  //   console.log(isAuth.message);
+  //   if (isAuth.message === "un-Authorized") {
+  //     navigate("/Sign-in");
+  //   }
+  // }, []);
   return (
     <userContext.Provider
       value={{
