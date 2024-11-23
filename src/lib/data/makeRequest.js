@@ -25,7 +25,6 @@ const getHeaders = () => {
 // work
 
 const handleRequestError = async (response, errorMessage) => {
-  const navigate = useNavigate();
   if (response.ok) {
     return;
   }
@@ -33,7 +32,7 @@ const handleRequestError = async (response, errorMessage) => {
   const error = await response.json();
   console.log(error);
   if (response.status === 401) {
-    window.location.href = "/Sign-in";
+    // window.location.href = "/Sign-in";
   }
 
   return error;
