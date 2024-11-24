@@ -9,10 +9,8 @@ function App() {
   return (
     <div className="bg-gray-50">
       <QueryClientProvider client={queryClient}>
-        <UserContextProvider>
-          <AllRoutes />
-          <CookieBanner />
-        </UserContextProvider>
+        <AllRoutes />
+        <CookieBanner />
       </QueryClientProvider>
     </div>
   );
