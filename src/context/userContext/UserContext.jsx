@@ -54,7 +54,7 @@ export const UserContextProvider = ({ children }) => {
     localStorage.removeItem(USER_STORAGE_KEY);
     localStorage.removeItem("token");
     if (path.pathname === "/") return;
-    navigate("/Sign-in");
+    // navigate("/Sign-in");
     // window.location.reload();
   }, [navigate]);
 
