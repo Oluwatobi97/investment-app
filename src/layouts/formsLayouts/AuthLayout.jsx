@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const NavigateOptions = ({ title, className }) => {
@@ -16,9 +16,12 @@ const NavigateOptions = ({ title, className }) => {
   );
 };
 export const AuthLayout = ({ children, title }) => {
+  const { isLo } = useContext;
   useEffect(() => {
-    window.location.reload();
-  }, [typeof window === "undefiend"]);
+    if (typeof window === "undefined") {
+      window.location.reload();
+    }
+  }, [isLoggedIn]);
   return (
     <div className="!bg-blue-500">
       <div className="absolute left-[7%] top-[20%] md:left-[30%] md:top-32 lg:left-[40%]  mx-auto p-10 border border-accent bg-background rounded-lg">
