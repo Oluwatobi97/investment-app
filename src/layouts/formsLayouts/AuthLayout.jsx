@@ -16,7 +16,7 @@ const NavigateOptions = ({ title, className }) => {
   );
 };
 export const AuthLayout = ({ children, title }) => {
-  const { isLo } = useContext;
+  const { isLoggedIn } = useContext;
   useEffect(() => {
     if (typeof window === "undefined") {
       window.location.reload();
