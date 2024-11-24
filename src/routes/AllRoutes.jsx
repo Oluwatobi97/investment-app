@@ -14,48 +14,46 @@ export const AllRoutes = () => {
     <div>
       <Routes>
         <Route path="/" element={<Marketing />} />
-        <UserContextProvider>
-          <Route
-            path="/Sign-in"
-            element={
-              <ProtectedRoutes pageType="auth-page">
-                <Signin />
-              </ProtectedRoutes>
-            }
-          />
-          <Route
-            path="/Sign-up"
-            element={
-              <ProtectedRoutes pageType="auth-page">
-                <Signup />
-              </ProtectedRoutes>
-            }
-          />
-          <Route
-            path="/home"
-            element={
-              <ProtectedRoutes pageType="app-page">
-                <Home />
-              </ProtectedRoutes>
-            }
-          />
-          <Route
-            path="/create-plans"
-            element={
-              <ProtectedRoutes pageType="app-page">
-                <CreatePlans />
-              </ProtectedRoutes>
-            }
-          />
-          <Route
-            path="/preview-plan"
-            element={
-              <ProtectedRoutes pageType="app-page">
-                <PreviewPlan />
-              </ProtectedRoutes>
-            }
-          />
-        </UserContextProvider>
+        <Route
+          path="/Sign-in"
+          element={
+            <ProtectedRoutes pageType="auth-page">
+              <Signin />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/Sign-up"
+          element={
+            <ProtectedRoutes pageType="auth-page">
+              <Signup />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoutes pageType="app-page">
+              <Home />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/create-plans"
+          element={
+            <ProtectedRoutes pageType="app-page">
+              <CreatePlans />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/preview-plan"
+          element={
+            <ProtectedRoutes pageType="app-page">
+              <PreviewPlan />
+            </ProtectedRoutes>
+          }
+        />
       </Routes>
     </div>
   );

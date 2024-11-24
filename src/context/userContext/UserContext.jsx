@@ -52,7 +52,7 @@ export const UserContextProvider = ({ children }) => {
     setUserDetails(null);
     localStorage.removeItem(USER_STORAGE_KEY);
     localStorage.removeItem("token");
-    navigate("/Sign-in");
+    // navigate("/Sign-in");
     // window.location.reload();
   }, [navigate]);
 
