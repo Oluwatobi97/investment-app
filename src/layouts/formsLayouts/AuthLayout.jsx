@@ -21,7 +21,7 @@ export const AuthLayout = ({ children, title }) => {
   const { pathname } = useLocation();
   useEffect(() => {
     if (!isLoggedIn) {
-      window.location.replace(title === "LogIn" ? "#/Sign-in" : "#/Sign-up");
+      // window.location.replace(title === "LogIn" ? "#/Sign-in" : "#/Sign-up");
     }
   }, [typeof window === "undefined"]);
   return (
