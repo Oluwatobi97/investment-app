@@ -17,13 +17,6 @@ const NavigateOptions = ({ title, className }) => {
   );
 };
 export const AuthLayout = ({ children, title }) => {
-  const { isLoggedIn } = useUserContext();
-  const { pathname } = useLocation();
-  useEffect(() => {
-    if (!isLoggedIn) {
-      // window.location.replace(title === "LogIn" ? "#/Sign-in" : "#/Sign-up");
-    }
-  }, [typeof window === "undefined"]);
   return (
     <div className="!bg-blue-500">
       <div className="absolute left-[7%] top-[20%] md:left-[30%] md:top-32 lg:left-[40%]  mx-auto p-10 border border-accent bg-background rounded-lg">

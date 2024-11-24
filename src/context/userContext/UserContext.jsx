@@ -24,19 +24,11 @@ export const UserContextProvider = ({ children }) => {
     JSON.parse(localStorage.getItem(USER_STORAGE_KEY))
   );
   const navigate = useNavigate();
-  const path = useLocation();
 
   // Fetch user details when logged in
   const fetchUserDetails = useCallback(async () => {
     try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        logOut();
-        return;
-      }
-      const result = await ApiRequest.GET(
-        `auth-system/authenticated-user?token=${token}`
-      );
+      const result = await ApiRequest.GET(`auth-system/authenticated-user`);
       if (result.message === "un-Authorized") {
         logOut();
         return;
@@ -53,9 +45,6 @@ export const UserContextProvider = ({ children }) => {
     setUserDetails(null);
     localStorage.removeItem(USER_STORAGE_KEY);
     localStorage.removeItem("token");
-    if (path.pathname === "/") return;
-    // navigate("/Sign-in");
-    // window.location.reload();
   }, [navigate]);
 
   // Auto-fetch user details when logged in state changes
