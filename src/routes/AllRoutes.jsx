@@ -9,11 +9,18 @@ import CreatePlans from "../views/create-plans/CreatePlans";
 import { PreviewPlan } from "../views/create-plans/PreviewPlan";
 import { UserContextProvider } from "../context/userContext/UserContext";
 
-export const AllRoutes = () => {
+export const MarkertingRoutes = () => {
   return (
-    <div>
+    <Routes>
+      <Route path="/" element={<Marketing />} />
+    </Routes>
+  );
+};
+
+export const AppRoute = () => {
+  return (
+    <UserContextProvider>
       <Routes>
-        <Route path="/" element={<Marketing />} />
         <Route
           path="/Sign-in"
           element={
@@ -55,8 +62,6 @@ export const AllRoutes = () => {
           }
         />
       </Routes>
-    </div>
+    </UserContextProvider>
   );
 };
-
-export default AllRoutes;

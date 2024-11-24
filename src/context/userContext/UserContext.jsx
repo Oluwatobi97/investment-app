@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import { ApiRequest } from "../../lib/data/makeRequest";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const userContext = createContext(null);
 
@@ -24,6 +24,7 @@ export const UserContextProvider = ({ children }) => {
     JSON.parse(localStorage.getItem(USER_STORAGE_KEY))
   );
   const navigate = useNavigate();
+  const path = useLocation();
 
   // Fetch user details when logged in
   const fetchUserDetails = useCallback(async () => {
@@ -52,7 +53,8 @@ export const UserContextProvider = ({ children }) => {
     setUserDetails(null);
     localStorage.removeItem(USER_STORAGE_KEY);
     localStorage.removeItem("token");
-    // navigate("/Sign-in");
+    if (path.pathname === "/") return;
+    navigate("/Sign-in");
     // window.location.reload();
   }, [navigate]);
 

@@ -1,5 +1,6 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useUserContext } from "../../context/userContext/UserContext";
 
 const NavigateOptions = ({ title, className }) => {
   if (title === "LogIn") {
@@ -16,7 +17,8 @@ const NavigateOptions = ({ title, className }) => {
   );
 };
 export const AuthLayout = ({ children, title }) => {
-  const { isLoggedIn } = useContext;
+  const { isLoggedIn } = useUserContext();
+
   useEffect(() => {
     if (typeof window === "undefined") {
       window.location.reload();

@@ -8,8 +8,6 @@ import { useMutation } from "@tanstack/react-query";
 import { ApiRequest } from "../../lib/data/makeRequest";
 import { ToatMessage, useToast } from "../../components/ToatMessage";
 import AuthLayout from "../../layouts/formsLayouts/AuthLayout";
-import { useNavigate } from "react-router-dom";
-import { useUserContext } from "../../context/userContext/UserContext";
 import { useAuthenticate } from "./Signin";
 
 // find a better way to do this

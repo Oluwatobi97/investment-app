@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { AllButton } from "../../../views/auth/shared/AllButton";
-import photo1 from "../../../assets/image/photo1.jpeg";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Linkbuttons } from "../../../views/DashBoard/Plans";
@@ -68,7 +66,7 @@ export const NavBar = () => {
         <div className="hidden md:flex items-center gap-6">
           <ul className="flex md:gap-8 text-lg gap-3 ">
             {navList.map((item, index) => (
-              <Link to={item.to} className="pointer">
+              <Link to={item.to} key={index} className="pointer">
                 <li className="font-semibold capitalize" key={index}>
                   {item.linkName.replace("-", " ")}
                 </li>
