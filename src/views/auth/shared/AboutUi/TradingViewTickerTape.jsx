@@ -37,7 +37,7 @@ export const TradingViewTickerTape = () => {
   }, []);
 
   return (
-    <div className="tradingview-widget-container">
+    <div className="tradingview-widget-container pt-2 ">
       <div className="tradingview-widget-container__widget"></div>
       <div className="tradingview-widget-copyright">
         <a
