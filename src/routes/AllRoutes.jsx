@@ -8,7 +8,7 @@ import ProtectedRoutes from "../lib/ProtectedRoutes";
 import CreatePlans from "../views/create-plans/CreatePlans";
 import { PreviewPlan } from "../views/create-plans/PreviewPlan";
 import { UserContextProvider } from "../context/userContext/UserContext";
-import TradingView from "../views/TradingView/TradingView";
+import { TradingView } from "../views/TradingView/TradingView";
 
 export const MarkertingRoutes = () => {
   return (
