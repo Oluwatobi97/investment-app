@@ -55,9 +55,7 @@ export const TradingGrap = () => {
           href="https://www.tradingview.com/"
           rel="noopener nofollow"
           target="_blank"
-        >
-          <span className="blue-text">Track all markets on TradingView</span>
-        </a>
+        ></a>
       </div>
     </div>
   );
