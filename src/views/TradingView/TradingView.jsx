@@ -1,7 +1,11 @@
 import React from "react";
 
-function TradingView() {
-  return <div>Home</div>;
-}
+import { TradingGrap } from "../auth/shared/AboutUi/TradingGrap";
 
-export default TradingView;
+export const TradingView = () => {
+  return (
+    <div>
+      <TradingGrap />
+    </div>
+  );
+};
