@@ -14,22 +14,22 @@ export const TradingViewTickerTape = () => {
           proName: "BITSTAMP:BTCUSD",
           title: "Bitcoin",
         },
-        {
-          description: "Bitcoin",
-          proName: "BINANCE:BTCUSDT",
-        },
-        {
-          description: "ETH",
-          proName: "BINANCE:ETHUSDT",
-        },
-        {
-          description: "DOG",
-          proName: "BINANCE:DOGEUSDT",
-        },
-        {
-          description: "SOL",
-          proName: "BINANCE:SOLUSDT",
-        },
+        // {
+        //   description: "Bitcoin",
+        //   proName: "BINANCE:BTCUSDT",
+        // },
+        // {
+        //   description: "ETH",
+        //   proName: "BINANCE:ETHUSDT",
+        // },
+        // {
+        //   description: "DOG",
+        //   proName: "BINANCE:DOGEUSDT",
+        // },
+        // {
+        //   description: "SOL",
+        //   proName: "BINANCE:SOLUSDT",
+        // },
       ],
       showSymbolLogo: true,
       isTransparent: false,
