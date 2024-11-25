@@ -24,8 +24,8 @@ export const TradingGrap1 = () => {
             ]
           ],
           "chartOnly": false,
-          "width": "${widgetWidth}",
-          "height": "${widgetHeight},
+          "width": 550,
+          "height": 400,
           "locale": "en",
           "colorTheme": "light",
           "autosize": false,
