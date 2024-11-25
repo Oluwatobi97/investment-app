@@ -8,6 +8,7 @@ import ProtectedRoutes from "../lib/ProtectedRoutes";
 import CreatePlans from "../views/create-plans/CreatePlans";
 import { PreviewPlan } from "../views/create-plans/PreviewPlan";
 import { UserContextProvider } from "../context/userContext/UserContext";
+import TradingView from "../views/TradingView/TradingView";
 
 export const MarkertingRoutes = () => {
   return (
@@ -50,6 +51,14 @@ export const AppRoute = () => {
           element={
             <ProtectedRoutes pageType="app-page">
               <CreatePlans />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/Trading-view"
+          element={
+            <ProtectedRoutes pageType="app-page">
+              <TradingView />
             </ProtectedRoutes>
           }
         />

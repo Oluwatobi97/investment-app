@@ -49,6 +49,14 @@ export const Plans = ({ data }) => {
         >
           Create Plans
         </Linkbuttons>
+        <Linkbuttons
+          path={"/Trading-view"}
+          className={
+            "px-4 py-2 bg-blue-600  hover:bg-blue-700 text-white font-semibold rounded-md transition-all duration-200 text-lg"
+          }
+        >
+          Trade
+        </Linkbuttons>
       </div>
       {data && data.length !== 0 ? (
         data.map((plan) => <PlanCmp plan={plan} />)
