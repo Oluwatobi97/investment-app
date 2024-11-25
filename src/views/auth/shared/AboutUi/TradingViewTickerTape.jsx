@@ -4,38 +4,24 @@ export const TradingViewTickerTape = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
-      "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
+      "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js";
     script.async = true;
 
     // Widget configuration
     script.innerHTML = JSON.stringify({
-      symbols: [
-        {
-          proName: "BITSTAMP:BTCUSD",
-          title: "Bitcoin",
-        },
-        // {
-        //   description: "Bitcoin",
-        //   proName: "BINANCE:BTCUSDT",
-        // },
-        // {
-        //   description: "ETH",
-        //   proName: "BINANCE:ETHUSDT",
-        // },
-        // {
-        //   description: "DOG",
-        //   proName: "BINANCE:DOGEUSDT",
-        // },
-        // {
-        //   description: "SOL",
-        //   proName: "BINANCE:SOLUSDT",
-        // },
-      ],
-      showSymbolLogo: true,
-      isTransparent: false,
-      displayMode: "compact",
-      colorTheme: "light",
+      symbol: "BITSTAMP:BTCUSD",
+      width: "250",
+      height: "250",
       locale: "en",
+      dateRange: "1M",
+      colorTheme: "light",
+      trendLineColor: "rgba(230, 145, 56, 1)",
+      underLineColor: "rgba(246, 178, 107, 1)",
+      underLineBottomColor: "rgba(249, 203, 156, 0)",
+      isTransparent: false,
+      autosize: false,
+      largeChartUrl: "",
+      noTimeScale: true,
     });
 
     // Append the script to the container
@@ -59,7 +45,7 @@ export const TradingViewTickerTape = () => {
           rel="noopener nofollow"
           target="_blank"
         >
-          <span className="blue-text">Track all markets on TradingView</span>
+          <span className="blue-text"></span>
         </a>
       </div>
     </div>

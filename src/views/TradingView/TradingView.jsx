@@ -5,9 +5,11 @@ import { TradingViewTickerTape } from "../auth/shared/AboutUi/TradingViewTickerT
 
 export const TradingView = () => {
   return (
-    <div>
+    <div className="pt-3 md:p-4 p-2">
       <TradingGrap />
-      <TradingViewTickerTape className={"pt-2"} />
+      <div className="pt-2">
+        <TradingViewTickerTape />
+      </div>
       <TradingGrap1 />
     </div>
   );
