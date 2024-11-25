@@ -57,9 +57,12 @@ export const TradingGrap1 = () => {
   }, []);
 
   return (
-    <div className="tradingview-widget-container" ref={container}>
+    <div
+      className="tradingview-widget-container mx-auto w-full max-w-lg p-4"
+      ref={container}
+    >
       <div className="tradingview-widget-container__widget"></div>
-      <div className="tradingview-widget-copyright">
+      <div className="tradingview-widget-copyright text-center">
         <a
           href="https://www.tradingview.com/"
           rel="noopener nofollow"
