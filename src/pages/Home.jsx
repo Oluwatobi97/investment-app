@@ -3,8 +3,6 @@ import SideBar from "./Marketing.jsx/Header/SideBar";
 import Dash from "../views/DashBoard/Dash";
 import { CyptoMarket } from "../views/DashBoard/CyptoMarket";
 
-import { BitcoinChart } from "../views/auth/shared/BitcoinChart";
-
 function Home() {
   // const context = useUserContext();
   // const naviage = useNavigate();
@@ -23,7 +21,6 @@ function Home() {
       <SideBar />
       <Dash />
       <CyptoMarket />
-      <BitcoinChart />
     </div>
   );
 }
