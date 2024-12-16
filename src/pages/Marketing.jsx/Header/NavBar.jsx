@@ -2,93 +2,126 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Linkbuttons } from "../../../views/DashBoard/Plans";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navList = [
-  {
-    linkName: "benefit",
-    to: "#benefits",
-  },
-  {
-    linkName: "about-us",
-    to: "#about-us",
-  },
-  {
-    linkName: "contact-us",
-    to: "#contact-us",
-  },
+  { linkName: "benefit", to: "#benefits" },
+  { linkName: "about-us", to: "#about-us" },
+  { linkName: "contact-us", to: "#contact-us" },
 ];
 
 export const MoblieNavBar = ({
   isToggled,
-  setIsToggeled,
   navItem,
   buttonCmp,
+  setIsToggeled,
 }) => {
   return (
-    <div
-      className={`fixed w-full  ${
-        isToggled ? "left-[0.1%]" : "left-[100%]"
-      }  transition-all duration-100 ease-in-out z-10 md:left-[100%]  bg-background h-screen`}
-    >
-      <div className="flex flex-col gap-20 items-center">
-        <ul className="flex flex-col mt-10 gap-10 items-center md:gap-8 text-lg ">
-          {navItem.map((item, index) => (
-            <Link to={item.to} className="pointer">
-              <li
-                className="font-semibold capitalize"
-                onClick={() => {
-                  setIsToggeled(false);
-                }}
-                key={index}
-              >
-                {item.linkName.includes("-")
-                  ? item.linkName.replace("-", " ")
-                  : item.linkName}{" "}
-              </li>
-            </Link>
-          ))}
-        </ul>
-        <div>{buttonCmp}</div>
-      </div>
-    </div>
+    <AnimatePresence>
+      {isToggled && (
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "100%" }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          className="fixed w-full top-0 right-0 z-20 bg-background h-screen"
+        >
+          <motion.div
+            className="flex flex-col gap-20 items-center relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <motion.button
+              className="absolute top-4 right-4"
+              onClick={() => setIsToggeled(false)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <X size={24} />
+            </motion.button>
+            <ul className="flex flex-col mt-20 gap-10 items-center md:gap-8 text-lg">
+              {navItem.map((item, index) => (
+                <motion.li
+                  key={index}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link
+                    to={item.to}
+                    className="pointer font-semibold capitalize"
+                    onClick={() => setIsToggeled(false)}
+                  >
+                    {item.linkName.replace("-", " ")}
+                  </Link>
+                </motion.li>
+              ))}
+            </ul>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              {buttonCmp}
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
+
 export const NavButton = ({ children }) => {
   return children;
 };
+
 export const NavBar = () => {
   const [isToggled, setIsToggeled] = useState(false);
+
   return (
-    <div className="fixed z-10  bg-background w-full max-w-7xl p-2 md:p-5 m-auto border-b">
+    <motion.div
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="fixed z-10 bg-background w-full max-w-7xl p-2 md:p-5 m-auto border-b"
+    >
       <div className="flex items-center justify-between">
-        {/* <img src={photo1} className="w-[80px] md:w-[150px]" /> */}
-        <h1>Investment</h1>
-        <div className="hidden md:flex items-center gap-6">
-          <ul className="flex md:gap-8 text-lg gap-3 ">
+        <motion.h1 whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          Investment
+        </motion.h1>
+        <motion.div
+          className="hidden md:flex items-center gap-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          <ul className="flex md:gap-8 text-lg gap-3">
             {navList.map((item, index) => (
-              <Link to={item.to} key={index} className="pointer">
-                <li className="font-semibold capitalize" key={index}>
+              <motion.li
+                key={index}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link to={item.to} className="pointer font-semibold capitalize">
                   {item.linkName.replace("-", " ")}
-                </li>
-              </Link>
+                </Link>
+              </motion.li>
             ))}
           </ul>
-        </div>
+        </motion.div>
         <div>
-          <Linkbuttons
-            path={"/Sign-in"}
-            className={
-              " hidden md:block px-4 py-2 bg-blue-600  hover:bg-blue-700 text-white font-semibold rounded-md transition-all duration-200"
-            }
-          >
-            SIGNIN
-          </Linkbuttons>
-          <button
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Linkbuttons
+              path={"/Sign-in"}
+              className="hidden md:block px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition-all duration-200"
+            >
+              SIGNIN
+            </Linkbuttons>
+          </motion.div>
+          <motion.button
             className="md:hidden"
             onClick={() => setIsToggeled(!isToggled)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
           >
             {!isToggled ? <Menu /> : <X />}
-          </button>
+          </motion.button>
           <MoblieNavBar
             isToggled={isToggled}
             setIsToggeled={setIsToggeled}
@@ -96,9 +129,7 @@ export const NavBar = () => {
             buttonCmp={
               <Linkbuttons
                 path={"/Sign-in"}
-                className={
-                  "  px-4 py-2 bg-blue-600  hover:bg-blue-700 text-white font-semibold rounded-md transition-all duration-200 block md:hidden text-lg"
-                }
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition-all duration-200 block md:hidden text-lg"
               >
                 SIGNIN
               </Linkbuttons>
@@ -106,7 +137,7 @@ export const NavBar = () => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

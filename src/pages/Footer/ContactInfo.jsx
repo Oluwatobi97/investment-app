@@ -1,33 +1,65 @@
 import React from "react";
 import Wrapper from "../../context/Wrapper";
-import { TwitterIcon } from "lucide-react";
-import { InstagramIcon } from "lucide-react";
-import { TicketIcon } from "lucide-react";
+import {
+  TwitterIcon,
+  InstagramIcon,
+  TicketIcon,
+  MailIcon,
+  PhoneIcon,
+} from "lucide-react";
+
 export const ContactInfo = () => {
   return (
     <Wrapper>
-      <div className="bg-gray-50 p-3 text-center text-gray-800 items-center justify-center">
-        <div>
-          <h1 className="text-xl font-semibold">Contact Us</h1>
-          <p>
-            We are active 24/7 to recive your complain and we where to get them
-            solved for you{" "}
+      <div className="bg-gray-50 py-8 px-4">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-gray-900">Contact Us</h2>
+          <p className="mt-2 text-sm text-gray-500">
+            We are available 24/7 to receive your inquiries and provide
+            solutions.
           </p>
-          <p>victortobi2000@gmail.com</p>
-          <p>+234-903-376-6725</p>
-        </div>
-        <div>
-          <ul className="flex items-center justify-center gap-8 mt-3">
-            <li>
-              <TwitterIcon />
-            </li>
-            <li>
-              <InstagramIcon />
-            </li>
-            <li>
-              <TicketIcon />
-            </li>
-          </ul>
+          <div className="mt-4 flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4">
+            <div className="flex items-center">
+              <MailIcon className="h-5 w-5 text-gray-400 mr-1" />
+              <a
+                href="mailto:victortobi2000@gmail.com"
+                className="text-sm text-gray-500 hover:text-gray-600"
+              >
+                victortobi2000@gmail.com
+              </a>
+            </div>
+            <div className="flex items-center">
+              <PhoneIcon className="h-5 w-5 text-gray-400 mr-1" />
+              <a
+                href="tel:+2349033766725"
+                className="text-sm text-gray-500 hover:text-gray-600"
+              >
+                +234-903-376-6725
+              </a>
+            </div>
+          </div>
+          <div className="mt-4">
+            <ul className="flex justify-center space-x-4">
+              <li>
+                <a href="#" className="text-gray-400 hover:text-gray-500">
+                  <span className="sr-only">Twitter</span>
+                  <TwitterIcon className="h-5 w-5" />
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-400 hover:text-gray-500">
+                  <span className="sr-only">Instagram</span>
+                  <InstagramIcon className="h-5 w-5" />
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-400 hover:text-gray-500">
+                  <span className="sr-only">Support</span>
+                  <TicketIcon className="h-5 w-5" />
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </Wrapper>
