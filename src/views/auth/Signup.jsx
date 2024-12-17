@@ -1,18 +1,16 @@
 import React from "react";
-import FormSchema from "../../design-system/form/FormSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { motion } from "framer-motion";
 import { userSchema } from "../../lib/zod-schema";
 import { SIGNIN_FIELDS } from "./shared/constant";
-import { useMutation } from "@tanstack/react-query";
 import { ApiRequest } from "../../lib/data/makeRequest";
 import { ToatMessage, useToast } from "../../components/ToatMessage";
 import AuthLayout from "../../layouts/formsLayouts/AuthLayout";
 import { useAuthenticate } from "./Signin";
+import styles from "../../pages/Marketing.jsx/Header/ui/Signup.module.css";
 
-// find a better way to do this
-
-// hndle errors properly
 const useSignUpMutation = () => {
   const { setToast, toast, dismissToast } = useToast();
   const authenticate = useAuthenticate();
@@ -26,12 +24,14 @@ const useSignUpMutation = () => {
         authenticate(data.token);
       }
       if (data.status === 500) {
-        setToast({ message: "user already exist", status: "error" });
+        setToast({ message: "User already exists", status: "error" });
       }
     },
-    onError: async (data) => {
-      // console.log(data)
-      // setToast({ message: data.error, status: 'error' })
+    onError: async (error) => {
+      setToast({
+        message: error.message || "An error occurred",
+        status: "error",
+      });
     },
   });
   return { mutate, toast, dismissToast };
@@ -53,16 +53,51 @@ export const Signup = () => {
   };
 
   return (
-    // have a authLayout
-    <AuthLayout title={"SIGNUP"}>
-      <FormSchema
-        error={errors}
-        handleSubmit={handleSubmit(submit)}
-        register={register}
-        fields={SIGNIN_FIELDS}
-        className={"border outline-none  p-3 rounded-sm"}
-        loading={mutate.isPending}
-      />
+    <AuthLayout>
+      <motion.div
+        className={styles.container}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className={styles.formWrapper}>
+          <h2 className={styles.title}>Sign Up</h2>
+          <form onSubmit={handleSubmit(submit)}>
+            {SIGNIN_FIELDS.map((field) => (
+              <motion.div
+                key={field.name}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  duration: 0.3,
+                  delay: field.name === "email" ? 0.1 : 0.2,
+                }}
+              >
+                <input
+                  {...register(field.name)}
+                  placeholder={field.placeholder}
+                  type={field.type}
+                  className={styles.input}
+                />
+                {errors[field.name] && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors[field.name].message}
+                  </p>
+                )}
+              </motion.div>
+            ))}
+            <motion.button
+              type="submit"
+              className={styles.button}
+              disabled={mutate.isPending}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {mutate.isPending ? "Signing up..." : "Sign Up"}
+            </motion.button>
+          </form>
+        </div>
+      </motion.div>
       <ToatMessage toast={toast} dismissToast={dismissToast} />
     </AuthLayout>
   );

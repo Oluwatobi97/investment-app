@@ -1,15 +1,16 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { SIGNIN_FIELDS } from "./shared/constant";
-import AuthLayout from "../../layouts/formsLayouts/AuthLayout";
-import FormSchema from "../../design-system/form/FormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { userSchema } from "../../lib/zod-schema";
 import { useMutation } from "@tanstack/react-query";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { userSchema } from "../../lib/zod-schema";
+import { SIGNIN_FIELDS } from "./shared/constant";
 import { ApiRequest } from "../../lib/data/makeRequest";
 import { ToatMessage, useToast } from "../../components/ToatMessage";
+import AuthLayout from "../../layouts/formsLayouts/AuthLayout";
 import { useUserContext } from "../../context/userContext/UserContext";
+import styles from "../../pages/Marketing.jsx/Header/ui/Signin.module.css";
 
 export const useAuthenticate = () => {
   const { setIsLoggedIn } = useUserContext();
@@ -31,19 +32,18 @@ const useSignInMutation = () => {
       return await ApiRequest.POST("auth-system/login", data);
     },
     onSuccess: async (data) => {
-      console.log(data);
       if (data.status === 200) {
         authenticate(data.token);
       }
-
       if (data.status === 401) {
-        setToast({ message: "invalid username or password", status: "error" });
+        setToast({ message: "Invalid username or password", status: "error" });
       }
     },
     onError: async (error) => {
-      // const result = await response.json()
-      // setToast({ message: data.error, status: 'error' })
-      console.log(error, "hello");
+      setToast({
+        message: error.message || "An error occurred",
+        status: "error",
+      });
     },
   });
   return { mutate, toast, dismissToast };
@@ -65,18 +65,51 @@ export const Signin = () => {
   };
 
   return (
-    // have a authLayout
-    <AuthLayout title={"LogIn"}>
-      <FormSchema
-        error={errors}
-        handleSubmit={handleSubmit(submit)}
-        register={register}
-        fields={SIGNIN_FIELDS}
-        className={
-          "bg-transparent font-thin text-base px-10 text-start border border-gray-100 rounded-lg"
-        }
-        loading={mutate.isPending}
-      />
+    <AuthLayout>
+      <motion.div
+        className={styles.container}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className={styles.formWrapper}>
+          <h2 className={styles.title}>Log In</h2>
+          <form onSubmit={handleSubmit(submit)}>
+            {SIGNIN_FIELDS.map((field) => (
+              <motion.div
+                key={field.name}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  duration: 0.3,
+                  delay: field.name === "email" ? 0.1 : 0.2,
+                }}
+              >
+                <input
+                  {...register(field.name)}
+                  placeholder={field.placeholder}
+                  type={field.type}
+                  className={styles.input}
+                />
+                {errors[field.name] && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors[field.name].message}
+                  </p>
+                )}
+              </motion.div>
+            ))}
+            <motion.button
+              type="submit"
+              className={styles.button}
+              disabled={mutate.isPending}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {mutate.isPending ? "Logging in..." : "Log In"}
+            </motion.button>
+          </form>
+        </div>
+      </motion.div>
       <ToatMessage toast={toast} dismissToast={dismissToast} />
     </AuthLayout>
   );
