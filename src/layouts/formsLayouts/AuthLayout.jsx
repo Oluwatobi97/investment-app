@@ -6,13 +6,13 @@ const NavigateOptions = ({ title, className }) => {
   if (title === "LogIn") {
     return (
       <Link to={"/Sign-up"} className={className}>
-        i don't have an account
+        i have a account
       </Link>
     );
   }
   return (
     <Link to={"/Sign-in"} className={className}>
-      i already have an account
+      i don't have a account
     </Link>
   );
 };
