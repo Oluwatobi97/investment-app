@@ -74,9 +74,9 @@ export const Trading = () => {
   }, []);
 
   return (
-    <div className="tradingview-widget-container   justify-center md:p-6 mt-10 items-center  m-0">
-      <div className="tradingview-widget-container__widget h-screen w-fuil  "></div>
-      <div className="tradingview-widget-copyright absolute bottom-0 ">
+    <div className="tradingview-widget-container flex justify-center md:justify-start md:p-6 mt-10 items-center md:items-start m-0">
+      <div className="tradingview-widget-container__widget h-screen md:h-auto md:w-full w-full md:w-11/12"></div>
+      <div className="tradingview-widget-copyright absolute bottom-0 md:hidden">
         <a
           href="https://www.tradingview.com/"
           rel="noopener nofollow"
