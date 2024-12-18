@@ -22,14 +22,26 @@ export const Trading = () => {
         {
           title: "Crypto",
           symbols: [
-            { s: "FOREXCOM:SPXUSD", d: "S&P 500 Index" },
-            { s: "FOREXCOM:NSXUSD", d: "US 100 Cash CFD" },
-            { s: "FOREXCOM:DJI", d: "Dow Jones Industrial Average Index" },
-            { s: "INDEX:NKY", d: "Nikkei 225" },
-            { s: "INDEX:DEU40", d: "DAX Index" },
-            { s: "FOREXCOM:UKXGBP", d: "FTSE 100 Index" },
+            { s: "CRYPTOCAP:BTCUSD", d: "Bitcoin" },
+            { s: "CRYPTOCAP:ETHUSD", d: "Ethereum" },
+            { s: "CRYPTOCAP:BNBUSDT", d: "Binance Coin" },
+            { s: "CRYPTOCAP:DOGEUSD", d: "Dogecoin" },
+            { s: "CRYPTOCAP:ADAUSD", d: "Cardano" },
+            { s: "CRYPTOCAP:XRPUSD", d: "Ripple" },
+            // Add more cryptocurrency pairs here
+            { s: "CRYPTOCAP:LTCUSD", d: "Litecoin" },
+            { s: "CRYPTOCAP:BCHUSD", d: "Bitcoin Cash" },
+            { s: "CRYPTOCAP:DOTUSD", d: "Polkadot" },
+            { s: "CRYPTOCAP:UNIUSD", d: "Uniswap" },
+            { s: "CRYPTOCAP:AVAXUSD", d: "Avalanche" },
+            // Additional cryptocurrency pairs
+            { s: "CRYPTOCAP:MATICUSD", d: "MATIC" },
+            { s: "CRYPTOCAP:SOLUSD", d: "Solana" },
+            { s: "CRYPTOCAP:FTTUSD", d: "Fantom" },
+            { s: "CRYPTOCAP:THETAUSD", d: "Theta Network" },
+            { s: "CRYPTOCAP:ALGOUSD", d: "Algorand" },
           ],
-          originalTitle: "Indices",
+          originalTitle: "Cryptocurrencies",
         },
         {
           title: "Futures",
