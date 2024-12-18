@@ -7,8 +7,8 @@ export const TradingView = () => {
   return (
     <div className="pt-3 md:p-4 p-2">
       <BitcoinChart />
-      <Usdt />
-      <EthChart />
+      {/* <Usdt />
+      <EthChart /> */}
     </div>
   );
 };

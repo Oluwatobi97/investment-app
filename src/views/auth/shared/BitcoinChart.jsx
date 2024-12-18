@@ -1,11 +1,11 @@
 import React from "react";
 
-import { TradingGrap1 } from "./AboutUi/TradingGrap1";
+import { CryptoLiveTradeChat } from "./AboutUi/CryptoLiveTradeChat";
 
 export const BitcoinChart = () => {
   return (
     <div>
-      <TradingGrap1 />
+      <CryptoLiveTradeChat />
     </div>
   );
 };

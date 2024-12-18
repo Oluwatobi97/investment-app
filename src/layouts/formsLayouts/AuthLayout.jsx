@@ -5,16 +5,14 @@ import { useUserContext } from "../../context/userContext/UserContext";
 const NavigateOptions = ({ title, className }) => {
   if (title === "LogIn") {
     return (
-      <Link to={"/Sign-up"} className={className}>
-        i have a account
+      <Link
+        to={title === "LogIn" ? "/Sign-up" : "/Sign-in"}
+        className={className}
+      >
+        {title === "LogIn" ? "I have an account" : "I don't have an account"}
       </Link>
     );
   }
-  return (
-    <Link to={"/Sign-in"} className={className}>
-      i don't have a account
-    </Link>
-  );
 };
 export const AuthLayout = ({ children, title }) => {
   return (
