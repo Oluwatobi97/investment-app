@@ -1,4 +1,4 @@
-const BASE_URL="https://backend-servcie.onrender.com/api/v1/";
+const BASE_URL="https://backend-servcie-fa1w.onrender.com";
 
 // DESIGN PATTERN SOLVING A DESIGN PROBLEM
 
