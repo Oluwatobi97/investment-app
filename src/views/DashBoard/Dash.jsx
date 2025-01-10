@@ -17,27 +17,31 @@ export const Dash = () => {
   const { data } = useGetAllLoggedInUserPlans()
   const [isOpened, setIsOpened] = useState(false)
 
-	// const totalAmount = data && data?.reduce((sum, item) => sum + item.amount, 0);
+	const totalAmount = data && data?.reduce((sum, item) => sum + item.amount, 0);
 
   return (
-		<div className="md:p-4 p-2">
-		  <div className="py-7 text-xl mb-10 md:text-3xl text-textSecondary mt-5 bg-gradient-to-tr from-blue-50 to-surface p-10">
-		    <div className="gap-2 flex flex-col md:flex-row md:items-center md:justify-between">
-		      <div className="flex items-center gap-2">
-		        <h2 className="capitalize">Amount Invested</h2>
-		        <button onClick={() => setIsOpened(!isOpened)}>
-		          {isOpened ? <Eye size={20} /> : <EyeClosed size={20} />}
-		        </button>
-		      </div>
-		      {isOpened ? <div>${totalAmount}</div> : <div>****</div>}
-		    </div>
-		  </div>
+    <div className='md:p-4 p-2'>
+      <div className='py-7 text-xl mb-10 md:text-3xl text-textSecondary mt-5 bg-gradient-to-tr from-blue-50 to-surface p-10'>
+        <div className='gap-2 flex flex-col md:flex-row md:items-center md:justify-between'>
+          <div className='flex items-center gap-2'>
+            <h2 className='capitalize'>Amount Invested</h2>
+            <button onClick={() => setIsOpened(!isOpened)}>
+              {isOpened ? <Eye size={20} /> : <EyeClosed size={20} />}
+            </button>
+          </div>
+          {isOpened
+						? <div>
+								${totalAmount}
+							</div>
+						: <div>****</div>}
+        </div>
+      </div>
 
-		  <div className="mt-7 flex flex-col md:flex-row md:items-center md:justify-center md:gap-4">
-		    <Plans data={data} />
-		  </div>
-		</div>
-	)
+      <div className='mt-7 flex flex-col md:flex-row md:items-center md:justify-center md:gap-4'>
+        <Plans data={data} />
+      </div>
+    </div>
+  )
 }
 
 export default Dash
