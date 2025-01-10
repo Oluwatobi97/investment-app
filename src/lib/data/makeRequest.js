@@ -38,7 +38,7 @@ const handleRequestError=async (response,errorMessage) => {
   if(response.status===401) {
     return response;
   }
-  return await response.json();
+  return await response;
 };
 
 const makeRequest=async (method,path,data) => {
