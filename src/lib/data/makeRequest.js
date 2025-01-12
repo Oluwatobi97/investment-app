@@ -1,4 +1,4 @@
-const BASE_URL="https://backend-servcie.onrender.com/api/v1/";
+const BASE_URL="https://backend-servcie-fa1w.onrender.com/api/v1/";
 
 // DESIGN PATTERN SOLVING A DESIGN PROBLEM
 
@@ -38,7 +38,7 @@ const handleRequestError=async (response,errorMessage) => {
   if(response.status===401) {
     return response;
   }
-  return await response;
+  return response;
 };
 
 const makeRequest=async (method,path,data) => {
