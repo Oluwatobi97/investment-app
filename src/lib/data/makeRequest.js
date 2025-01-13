@@ -36,7 +36,6 @@ const handleRequestError=async (response,errorMessage) => {
   }
 
   if(response.status===401) {
-    console.log(response, 'from-make-request')
     return await response.json();
   }
   return response;
