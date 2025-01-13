@@ -1,5 +1,7 @@
-const BASE_URL="https://backend-servcie-fa1w.onrender.com/api/v1/";
+import {useAuthenticate} from "../../views/auth/Signin";
 
+const BASE_URL="https://backend-servcie-fa1w.onrender.com/api/v1/";
+// 
 // DESIGN PATTERN SOLVING A DESIGN PROBLEM
 
 // const signOut = () => {
@@ -35,9 +37,12 @@ const handleRequestError=async (response,errorMessage) => {
     return;
   }
 
-  const error=await response.json()
+  if(response.status===500) {
+    return 'Internal Server Error Try Again Later'
+  }
 
-  return error
+  const error=await response.json()
+  return error.message
 };
 
 const makeRequest=async (method,path,data) => {
@@ -50,8 +55,12 @@ const makeRequest=async (method,path,data) => {
     body: data? JSON.stringify(data):undefined,
   });
 
-  await handleRequestError(response,"error");
+  const error=await handleRequestError(response,"error");
 
+  if(error) {
+    console.log(error.message)
+    return error
+  }
   try {
     return await response.json();
   } catch {
