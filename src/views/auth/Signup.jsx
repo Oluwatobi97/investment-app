@@ -19,12 +19,12 @@ const useSignUpMutation = () => {
       return await ApiRequest.POST('auth-system/create-account', data)
     },
     onSuccess: async data => {
-      console.log(data)
+      console.log(data, 'data')
       if (data.status === 201) {
         authenticate(data.token)
       }
-      if (data.status === 500) {
-        setToast({ message: 'User already exists', status: 'error' })
+      if (result.status === 500) {
+        setToast({ message: 'An error occured', status: 'error' })
       }
     },
     onError: async error => {
@@ -65,7 +65,7 @@ export const Signup = () => {
         toast={toast}
         dismissToast={dismissToast}
         className={
-					'fixed left-1/2 -translate-x-1/2 p-4 bg-gray-800 text-white text-sm rounded-md shadow-lg z-50 top-5 lg:top-auto lg:bottom-5 hidden'
+					'fixed left-1/2 -translate-x-1/2 p-4  text-sm rounded-md shadow-lg z-50 top-5 lg:top-auto lg:left-[80%] lg:bottom-5 bg'
 				}
 			/>
     </AuthLayout>

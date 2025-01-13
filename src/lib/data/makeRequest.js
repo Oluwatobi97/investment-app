@@ -35,11 +35,9 @@ const handleRequestError=async (response,errorMessage) => {
     return;
   }
 
-  if(response.status===401) {
-    console.log(response)
-    return await response.json();
-  }
-  return response;
+  const error=await response.json()
+
+  return error
 };
 
 const makeRequest=async (method,path,data) => {
@@ -57,7 +55,6 @@ const makeRequest=async (method,path,data) => {
   try {
     return await response.json();
   } catch {
-    console.log(response.json())
     return response;
   }
 };

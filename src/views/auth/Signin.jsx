@@ -30,13 +30,20 @@ const useSignInMutation = () => {
     mutationFn: async data => {
       return await ApiRequest.POST('auth-system/login', data)
     },
-    onSuccess: async data => {
-      if (data.status === 200) {
+    onSuccess: async result => {
+      if (result.status === 200) {
         authenticate(data.token)
+        return
+      }
+      if (result.status === 500) {
+        setToast({ message: 'An error occured', status: 'error' })
+      }
+      if (result.status === 401) {
+        setToast({ message: 'invalid username or password', status: 'error' })
       }
     },
     onError: async error => {
-      const message = data.message || 'An unexpected error occurred'
+      const message = error.message || 'An unexpected error occurred'
       setToast({ message, status: 'error' })
     }
   })
@@ -54,6 +61,7 @@ export const Signin = () => {
     await mutate.mutateAsync(data)
   }
 
+  console.log(toast, 'toast')
   return (
     <AuthLayout title='LogIn'>
       <FormSchema
@@ -70,7 +78,7 @@ export const Signin = () => {
         toast={toast}
         dismissToast={dismissToast}
         className={
-					'fixed left-1/2 -translate-x-1/2 p-4 bg-gray-800 text-white text-sm rounded-md shadow-lg z-50 top-5 lg:top-auto lg:bottom-5 hidden'
+					'fixed left-1/2 -translate-x-1/2 p-4  text-sm rounded-md shadow-lg z-50 top-5 lg:top-auto lg:left-[80%] lg:bottom-5 bg'
 				}
 			/>
     </AuthLayout>
