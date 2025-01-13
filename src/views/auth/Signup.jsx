@@ -5,7 +5,7 @@ import { useMutation } from '@tanstack/react-query'
 import { userSchema } from '../../lib/zod-schema'
 import { SIGNIN_FIELDS } from './shared/constant'
 import { ApiRequest } from '../../lib/data/makeRequest'
-import { ToatMessage, useToast } from '../../components/ToatMessage'
+import { ToastMessage, useToast } from '../../components/ToastMessage'
 import AuthLayout from '../../layouts/formsLayouts/AuthLayout'
 import { useAuthenticate } from './Signin'
 import FormSchema from '../../design-system/form/FormSchema'
@@ -18,11 +18,11 @@ const useSignUpMutation = () => {
     mutationFn: async data => {
       return await ApiRequest.POST('auth-system/create-account', data)
     },
-    onSuccess: async data => {
-      if (data.status === 201) {
-        authenticate(data.token)
+    onSuccess: async result => {
+      if (result.status === 201) {
+        authenticate(result.token)
       }
-      console.log(data)
+      setToast({ message: result, status: 'error' })
     },
     onError: async error => {
       console.log(error)
@@ -58,11 +58,11 @@ export const Signup = () => {
 				}
         loading={mutate.isPending}
 			/>
-      <ToatMessage
+      <ToastMessage
         toast={toast}
         dismissToast={dismissToast}
         className={
-					'fixed left-1/2 -translate-x-1/2 p-4  text-sm rounded-md shadow-lg z-50 top-5 lg:top-auto lg:left-[80%] lg:bottom-5 bg'
+					'fixed left-[52%] -translate-x-1/2 p-4 border text-sm rounded-md shadow-lg z-50 top-10 lg:left-[53%]  bg-slate-50'
 				}
 			/>
     </AuthLayout>
