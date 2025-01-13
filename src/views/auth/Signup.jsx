@@ -54,7 +54,7 @@ export const Signup = () => {
 
   return (
     <>
-      <AuthLayout>
+      <AuthLayout title='SignUp'>
         <motion.div
           className={styles.container}
           initial={{ opacity: 0, y: 50 }}
@@ -62,7 +62,6 @@ export const Signup = () => {
           transition={{ duration: 0.5 }}
         >
           <div className={styles.formWrapper}>
-            <h2 className={styles.title}>Sign Up</h2>
             <form onSubmit={handleSubmit(submit)}>
               {SIGNIN_FIELDS.map((field) => (
                 <motion.div
