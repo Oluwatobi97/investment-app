@@ -33,6 +33,7 @@ const useSignInMutation = () => {
       return await ApiRequest.POST('auth-system/login', data)
     },
     onSuccess: async data => {
+      console.log(data, 'hello')
       if (data.status === 200) {
         authenticate(data.token)
       }
