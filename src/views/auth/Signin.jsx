@@ -9,6 +9,7 @@ import { ApiRequest } from '../../lib/data/makeRequest'
 import { ToastMessage, useToast } from '../../components/ToastMessage'
 import AuthLayout from '../../layouts/formsLayouts/AuthLayout'
 import { useUserContext } from '../../context/userContext/UserContext'
+import FormSchema from '../../design-system/form/FormSchema'
 
 export const useAuthenticate = () => {
   const { setIsLoggedIn } = useUserContext()
