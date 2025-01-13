@@ -33,14 +33,8 @@ const useSignInMutation = () => {
     onSuccess: async result => {
       if (result.status === 200) {
         authenticate(data.token)
-        return
       }
-      if (result.status === 500) {
-        setToast({ message: 'An error occured', status: 'error' })
-      }
-      if (result.status === 401) {
-        setToast({ message: 'invalid username or password', status: 'error' })
-      }
+      setToast({ message: result.message, status: 'error' })
     },
     onError: async error => {
       const message = error.message || 'An unexpected error occurred'
