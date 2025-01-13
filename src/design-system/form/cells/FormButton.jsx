@@ -1,6 +1,5 @@
 import React from 'react'
-import { LoaderCmp } from '../../../components/LoaderCmp'
-
+import { motion } from 'framer-motion'
 export const FormButton = ({ buttonName, className, loading }) => {
   return (
     <motion.button type='submit' className={className} disabled={loading}>
