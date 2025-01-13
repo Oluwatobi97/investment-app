@@ -8,6 +8,7 @@ import { ApiRequest } from '../../lib/data/makeRequest'
 import { ToatMessage, useToast } from '../../components/ToatMessage'
 import AuthLayout from '../../layouts/formsLayouts/AuthLayout'
 import { useAuthenticate } from './Signin'
+import FormSchema from '../../design-system/form/FormSchema'
 
 const useSignUpMutation = () => {
   const { setToast, toast, dismissToast } = useToast()
