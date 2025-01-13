@@ -19,13 +19,10 @@ const useSignUpMutation = () => {
       return await ApiRequest.POST('auth-system/create-account', data)
     },
     onSuccess: async data => {
-      console.log(data, 'data')
       if (data.status === 201) {
         authenticate(data.token)
       }
-      if (result.status === 500) {
-        setToast({ message: 'An error occured', status: 'error' })
-      }
+      console.log(data)
     },
     onError: async error => {
       console.log(error)

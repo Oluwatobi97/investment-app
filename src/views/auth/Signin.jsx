@@ -34,7 +34,7 @@ const useSignInMutation = () => {
       if (result.status === 200) {
         authenticate(data.token)
       }
-      setToast({ message: result.message, status: 'error' })
+      console.log(result)
     },
     onError: async error => {
       const message = error.message || 'An unexpected error occurred'

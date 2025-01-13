@@ -36,7 +36,6 @@ const handleRequestError=async (response,errorMessage) => {
   }
 
   const error=await response.json()
-
   return error
 };
 
