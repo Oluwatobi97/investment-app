@@ -53,52 +53,60 @@ export const Signup = () => {
   };
 
   return (
-    <AuthLayout>
-      <motion.div
-        className={styles.container}
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className={styles.formWrapper}>
-          <h2 className={styles.title}>Sign Up</h2>
-          <form onSubmit={handleSubmit(submit)}>
-            {SIGNIN_FIELDS.map((field) => (
-              <motion.div
-                key={field.name}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 0.3,
-                  delay: field.name === "email" ? 0.1 : 0.2,
-                }}
+    <>
+      <AuthLayout>
+        <motion.div
+          className={styles.container}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className={styles.formWrapper}>
+            <h2 className={styles.title}>Sign Up</h2>
+            <form onSubmit={handleSubmit(submit)}>
+              {SIGNIN_FIELDS.map((field) => (
+                <motion.div
+                  key={field.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: field.name === "email" ? 0.1 : 0.2,
+                  }}
+                >
+                  <input
+                    {...register(field.name)}
+                    placeholder={field.placeholder}
+                    type={field.type}
+                    className={styles.input}
+                  />
+                  {errors[field.name] && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors[field.name].message}
+                    </p>
+                  )}
+                </motion.div>
+              ))}
+              <motion.button
+                type="submit"
+                className={styles.button}
+                disabled={mutate.isPending}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <input
-                  {...register(field.name)}
-                  placeholder={field.placeholder}
-                  type={field.type}
-                  className={styles.input}
-                />
-                {errors[field.name] && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors[field.name].message}
-                  </p>
-                )}
-              </motion.div>
-            ))}
-            <motion.button
-              type="submit"
-              className={styles.button}
-              disabled={mutate.isPending}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {mutate.isPending ? "Signing up..." : "Sign Up"}
-            </motion.button>
-          </form>
-        </div>
-      </motion.div>
-      <ToatMessage toast={toast} dismissToast={dismissToast} />
-    </AuthLayout>
+                {mutate.isPending ? "Signing up..." : "Sign Up"}
+              </motion.button>
+            </form>
+          </div>
+        </motion.div>
+      </AuthLayout>
+      <ToastMessage
+        toast={toast}
+        dismissToast={dismissToast}
+        className={
+          "fixed left-1/2 -translate-x-1/2 p-4 bg-gray-800 text-white text-sm rounded-md shadow-lg z-50 top-5 lg:top-auto lg:bottom-5 hidden"
+        }
+      />
+    </>
   );
 };
