@@ -54,7 +54,7 @@ export const Signup = () => {
         register={register}
         fields={SIGNIN_FIELDS}
         className={
-					'bg-transparent font-thin text-base px-10 text-start border border-gray-100 rounded-lg'
+					' font-thin text-base px-10 text-start border border-gray-100 rounded-lg'
 				}
         loading={mutate.isPending}
 			/>
@@ -62,7 +62,7 @@ export const Signup = () => {
         toast={toast}
         dismissToast={dismissToast}
         className={
-					'fixed left-[52%] -translate-x-1/2 p-4 border text-sm rounded-md shadow-lg z-50 top-10 lg:left-[53%]  bg-slate-50'
+					'fixed left-[52%] -translate-x-1/2 p-4 border text-xs lg:text-sm rounded-md shadow-lg z-50 top-10 lg:left-[53%]  bg-slate-50'
 				}
 			/>
     </AuthLayout>
