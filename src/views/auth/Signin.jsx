@@ -35,9 +35,6 @@ const useSignInMutation = () => {
       if (data.status === 200) {
         authenticate(data.token);
       }
-      if (data.status === 401) {
-        setToast({ message: "Invalid username or password", status: "error" });
-      }
     },
     onError: async (error) => {
       const message =
