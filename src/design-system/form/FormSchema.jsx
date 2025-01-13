@@ -22,7 +22,7 @@ const FormSchema = ({
       <div className={styles.formWrapper}>
         <form
           onSubmit={handleSubmit}
-          className='flex flex-col items-start gap-8 '
+          className='flex flex-col items-start gap-8'
 				>
           {fields.map((field, index) =>
             <RenderForm
