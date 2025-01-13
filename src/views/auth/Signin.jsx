@@ -65,7 +65,7 @@ export const Signin = () => {
 
   return (
     <>
-      <AuthLayout>
+      <AuthLayout title='LogIn'>
         <motion.div
           className={styles.container}
           initial={{ opacity: 0, y: 50 }}
@@ -73,34 +73,18 @@ export const Signin = () => {
           transition={{ duration: 0.5 }}
         >
           <div className={styles.formWrapper}>
-            <h2 className={styles.title}>Log In</h2>
-            <form onSubmit={handleSubmit(submit)}>
-              {SIGNIN_FIELDS.map((field) => (
-                <motion.div
-                  key={field.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    duration: 0.3,
-                    delay: field.name === "email" ? 0.1 : 0.2,
-                  }}
-                >
-                  <input
-                    {...register(field.name)}
-                    placeholder={field.placeholder}
-                    type={field.type}
-                    className={`${styles.input} ${
-                      errors[field.name] ? styles.errorInput : ""
-                    }`}
-                    aria-invalid={errors[field.name] ? "true" : "false"}
-                  />
-
-                  {errors[field.name] && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors[field.name].message}
-                    </p>
-                  )}
-                </motion.div>
+            
+                <FormSchema
+                    error={errors}
+                    handleSubmit={handleSubmit(submit)}
+                    register={register}
+                    fields={SIGNIN_FIELDS}
+                    className={
+					              'bg-transparent font-thin text-base px-10 text-start border border-gray-100 rounded-lg'
+				                }
+                    loading={mutate.isPending}
+			            />
+            </motion.div>
               ))}
               <motion.button
                 type="submit"
