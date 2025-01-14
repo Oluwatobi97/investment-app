@@ -1,17 +1,10 @@
 import React from 'react'
-import { LoaderCmp } from '../../../components/LoaderCmp'
-
+import { motion } from 'framer-motion'
 export const FormButton = ({ buttonName, className, loading }) => {
   return (
-    <button
-      type='submit'
-      className={!className ? '' : className}
-      disabled={loading}
-		>
-      <span className={`${loading ? ' ' : ''}`}>
-        {loading ? <LoaderCmp /> : buttonName}
-      </span>
-    </button>
+    <motion.button type='submit' className={className} disabled={loading}>
+      {loading ? <span>Loading...</span> : buttonName}
+    </motion.button>
   )
 }
 

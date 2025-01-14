@@ -24,11 +24,14 @@ export const UserContextProvider = ({ children }) => {
 	)
   const navigate = useNavigate()
 
+	// const { setToast, toast, dismissToast } = useToast()
+
 	// Fetch user details when logged in
   const fetchUserDetails = useCallback(async () => {
     try {
       const result = await ApiRequest.GET(`auth-system/authenticated-user`)
       if (result.message === 'un-Authorized') {
+				// setToast({ message: result.message, staus: 'error' })
         logOut()
         return
       }
