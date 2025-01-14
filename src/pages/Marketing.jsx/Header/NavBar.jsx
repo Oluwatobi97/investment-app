@@ -84,7 +84,7 @@ export const NavBar = () => {
     >
       <div className="flex items-center justify-between">
         <motion.h1 whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <img src={photo5} alt="logo" className="h-20 w-20 ml-2" />
+          <img src={photo5} alt="logo222" className="h-20 w-20 ml-2" />
         </motion.h1>
         <motion.div
           className="hidden md:flex items-center gap-6"
