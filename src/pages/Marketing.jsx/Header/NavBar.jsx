@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Linkbuttons } from "../../../views/DashBoard/Plans";
 import { motion, AnimatePresence } from "framer-motion";
+import photo5 from "./../../../assets/image/photo5.jpg";
 
 const navList = [
   { linkName: "benefit", to: "#benefits" },
@@ -83,7 +84,7 @@ export const NavBar = () => {
     >
       <div className="flex items-center justify-between">
         <motion.h1 whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          Investment
+          <img src={photo5} alt="logo" className="h-20 w-20 ml-2" />
         </motion.h1>
         <motion.div
           className="hidden md:flex items-center gap-6"
