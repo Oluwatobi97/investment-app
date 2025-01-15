@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 const CallToAction = () => {
   const controls = useAnimation();
@@ -62,14 +63,16 @@ const CallToAction = () => {
           Join thousands of investors and grow your wealth with CryptoNest
           today!
         </motion.p>
-        <motion.button
-          variants={itemVariants}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-primary text-surface px-6 py-3 rounded-lg font-bold hover:bg-secondary transition"
-        >
-          Get Started
-        </motion.button>
+        <Link to={"/Sign-Up"}>
+          <motion.button
+            variants={itemVariants}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-primary text-surface px-6 py-3 rounded-lg font-bold hover:bg-secondary transition"
+          >
+            Get Started
+          </motion.button>
+        </Link>
       </motion.div>
     </motion.section>
   );
