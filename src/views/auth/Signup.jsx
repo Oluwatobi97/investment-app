@@ -54,7 +54,7 @@ export const Signup = () => {
         register={register}
         fields={SIGNIN_FIELDS}
         className={
-					' font-thin text-base px-10 text-start border border-gray-100 rounded-lg'
+					'font-thin text-base px-10 text-start border border-gray-100 rounded-lg'
 				}
         loading={mutate.isPending}
 			/>
