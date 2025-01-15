@@ -1,4 +1,9 @@
-export const SIGNIN_FIELDS = [
+export const SIGNUP_FIELDS = [
+  {
+    type: "text",
+    name: "FullName",
+    placeholder: "enter your fullname",
+  },
   {
     type: "email",
     name: "Email",

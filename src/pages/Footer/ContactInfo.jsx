@@ -1,12 +1,7 @@
 import React from "react";
 import Wrapper from "../../context/Wrapper";
-import {
-  TwitterIcon,
-  InstagramIcon,
-  TicketIcon,
-  MailIcon,
-  PhoneIcon,
-} from "lucide-react";
+
+import { Send, TicketIcon, MailIcon, PhoneIcon } from "lucide-react";
 
 export const ContactInfo = () => {
   return (
@@ -22,23 +17,23 @@ export const ContactInfo = () => {
             <div className="flex items-center">
               <MailIcon className="h-5 w-5 text-gray-400 mr-1" />
               <a
-                href="mailto:victortobi2000@gmail.com"
+                href="helpdesk.federalinvestment@gmail.com"
                 className="text-sm text-gray-500 hover:text-gray-600"
               >
-                victortobi2000@gmail.com
+                helpdesk.federalinvestment@gmail.com
               </a>
             </div>
             <div className="flex items-center">
-              <PhoneIcon className="h-5 w-5 text-gray-400 mr-1" />
+              <Send className="h-5 w-5 text-gray-400 mr-1" />
               <a
-                href="tel:+2349033766725"
+                href="https://t.me/+ingHIKgdd-VlNGVk"
                 className="text-sm text-gray-500 hover:text-gray-600"
               >
-                +234-903-376-6725
+                https://t.me/+ingHIKgdd-VlNGVk
               </a>
             </div>
           </div>
-          <div className="mt-4">
+          {/* <div className="mt-4">
             <ul className="flex justify-center space-x-4">
               <li>
                 <a href="#" className="text-gray-400 hover:text-gray-500">
@@ -59,7 +54,7 @@ export const ContactInfo = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </Wrapper>
