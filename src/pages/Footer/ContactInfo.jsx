@@ -1,6 +1,6 @@
 import React from "react";
 import Wrapper from "../../context/Wrapper";
-import { FaTelegram } from "react-icons/fa";
+// import { FaTelegram } from "react-icons/fa";
 import {
   TwitterIcon,
   InstagramIcon,
@@ -29,7 +29,7 @@ export const ContactInfo = () => {
                 helpdesk.federalinvestment@gmail.com
               </a>
             </div>
-            <div className="flex items-center">
+            {/* <div className="flex items-center">
               <FaTelegram className="h-5 w-5 text-gray-400 mr-1" />
               <a
                 href="tel:+2349033766725"
@@ -37,7 +37,7 @@ export const ContactInfo = () => {
               >
                 https://t.me/+ingHIKgdd-VlNGVk
               </a>
-            </div>
+            </div> */}
           </div>
           {/* <div className="mt-4">
             <ul className="flex justify-center space-x-4">
