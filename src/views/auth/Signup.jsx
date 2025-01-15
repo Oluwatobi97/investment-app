@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { userSchema } from "../../lib/zod-schema";
-import { SIGNUP_FIELDS } from "./shared/constant1";
+import { SIGNIN_FIELDS } from "./shared/constant";
 import { ApiRequest } from "../../lib/data/makeRequest";
 import { ToastMessage, useToast } from "../../components/ToastMessage";
 import AuthLayout from "../../layouts/formsLayouts/AuthLayout";
@@ -56,7 +56,7 @@ export const Signup = () => {
         error={errors}
         handleSubmit={handleSubmit(submit)}
         register={register}
-        fields={SIGNUP_FIELDS}
+        fields={SIGNIN_FIELDS}
         className={
           " font-thin text-base px-10 text-start border border-gray-100 rounded-lg"
         }
@@ -66,7 +66,7 @@ export const Signup = () => {
         toast={toast}
         dismissToast={dismissToast}
         className={
-          "fixed left-[50%]  -translate-x-1/2 p-4 border text-xs lg:text-sm rounded-md shadow-lg z-50 top-10 lg:left-[53%]  bg-slate-50"
+          "fixed left-[52%] -translate-x-1/2 p-4 border text-xs lg:text-sm rounded-md shadow-lg z-50 top-10 lg:left-[53%]  bg-slate-50"
         }
       />
     </AuthLayout>
