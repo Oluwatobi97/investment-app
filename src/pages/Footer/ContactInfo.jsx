@@ -1,13 +1,7 @@
 import React from "react";
 import Wrapper from "../../context/Wrapper";
-// import { FaTelegram } from "react-icons/fa";
-import {
-  TwitterIcon,
-  InstagramIcon,
-  TicketIcon,
-  MailIcon,
-  PhoneIcon,
-} from "lucide-react";
+
+import { Send, TicketIcon, MailIcon, PhoneIcon } from "lucide-react";
 
 export const ContactInfo = () => {
   return (
@@ -29,15 +23,15 @@ export const ContactInfo = () => {
                 helpdesk.federalinvestment@gmail.com
               </a>
             </div>
-            {/* <div className="flex items-center">
-              <FaTelegram className="h-5 w-5 text-gray-400 mr-1" />
+            <div className="flex items-center">
+              <Send className="h-5 w-5 text-gray-400 mr-1" />
               <a
-                href="tel:+2349033766725"
+                href="https://t.me/+ingHIKgdd-VlNGVk"
                 className="text-sm text-gray-500 hover:text-gray-600"
               >
                 https://t.me/+ingHIKgdd-VlNGVk
               </a>
-            </div> */}
+            </div>
           </div>
           {/* <div className="mt-4">
             <ul className="flex justify-center space-x-4">
