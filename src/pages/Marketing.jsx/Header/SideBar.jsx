@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import photo3 from "../../../assets/image/photo3.jpeg";
+import photo5 from "../../../assets/image/photo5.jpg";
 import { Link } from "react-router-dom";
 import { useUserContext } from "../../../context/userContext/UserContext";
 import { Menu, X } from "lucide-react";
@@ -67,7 +67,7 @@ export const NavBar = () => {
       <div className="max-w-7xl py-5 px-5 flex items-center justify-between">
         {/* <img src={photo1} className='md:w-[150px] w-[90px]' /> */}
         <h1 className="text-xl md:text-2xl font-extrabold  tracking-tighter text-textSecondary">
-          FREDRAL INVESTMENT
+          <img src={photo5} alt="logo" className="w-16 h-16 ml-2" />
         </h1>
         <button onClick={() => setIsToggeled(!isToggled)} className="relative">
           {!isToggled ? (
