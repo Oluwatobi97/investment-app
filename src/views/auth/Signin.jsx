@@ -2,15 +2,13 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
-import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { userSchema } from '../../lib/zod-schema'
 import { SIGNIN_FIELDS } from './shared/constant'
 import { ApiRequest } from '../../lib/data/makeRequest'
-import { ToatMessage, useToast } from '../../components/ToatMessage'
+import { ToastMessage, useToast } from '../../components/ToastMessage'
 import AuthLayout from '../../layouts/formsLayouts/AuthLayout'
 import { useUserContext } from '../../context/userContext/UserContext'
-import styles from '../../pages/Marketing.jsx/Header/ui/Signin.module.css'
 import FormSchema from '../../design-system/form/FormSchema'
 
 export const useAuthenticate = () => {
@@ -32,17 +30,16 @@ const useSignInMutation = () => {
     mutationFn: async data => {
       return await ApiRequest.POST('auth-system/login', data)
     },
-    onSuccess: async data => {
-      console.log(data, 'hello')
-      if (data.status === 200) {
-        authenticate(data.token)
+    onSuccess: async result => {
+      console.log(result)
+      if (result.status === 200) {
+        authenticate(result.token)
       }
+      setToast({ message: result, status: 'error' })
     },
     onError: async error => {
-      setToast({
-        message: error.message || 'An error occurred',
-        status: 'error'
-      })
+      const message = error.message || 'An unexpected error occurred'
+      setToast({ message, status: 'error' })
     }
   })
   return { mutate, toast, dismissToast }
@@ -60,17 +57,24 @@ export const Signin = () => {
   }
 
   return (
-    <AuthLayout title={'LogIn'}>
-      <div>
-        <FormSchema
-          error={errors}
-          fields={SIGNIN_FIELDS}
-          handleSubmit={handleSubmit(submit)}
-          loading={mutate.isPending}
-          register={register}
-				/>
-      </div>
-      <ToatMessage toast={toast} dismissToast={dismissToast} />
+    <AuthLayout title='LogIn'>
+      <FormSchema
+        error={errors}
+        handleSubmit={handleSubmit(submit)}
+        register={register}
+        fields={SIGNIN_FIELDS}
+        className={
+					'bg-transparent font-thin text-base px-10 text-start border border-gray-100 rounded-lg'
+				}
+        loading={mutate.isPending}
+			/>
+      <ToastMessage
+        toast={toast}
+        dismissToast={dismissToast}
+        className={
+					'fixed left-[52%] -translate-x-1/2 p-4 border text-sm rounded-md shadow-lg z-50 top-10 lg:left-[53%]  bg-slate-50'
+				}
+			/>
     </AuthLayout>
   )
 }
