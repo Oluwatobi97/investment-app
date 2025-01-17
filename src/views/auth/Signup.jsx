@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
 import { userSchema } from '../../lib/zod-schema'
-import { SIGNIN_FIELDS } from './shared/constant'
+import { SIGNUP_FIELDS } from './shared/constant'
 import { ApiRequest } from '../../lib/data/makeRequest'
 import { ToastMessage, useToast } from '../../components/ToastMessage'
 import AuthLayout from '../../layouts/formsLayouts/AuthLayout'
@@ -52,7 +52,7 @@ export const Signup = () => {
         error={errors}
         handleSubmit={handleSubmit(submit)}
         register={register}
-        fields={SIGNIN_FIELDS}
+        fields={SIGNUP_FIELDS}
         className={
 					'font-thin text-base px-10 text-start border border-gray-100 rounded-lg'
 				}
