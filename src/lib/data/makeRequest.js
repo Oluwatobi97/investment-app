@@ -1,3 +1,4 @@
+
 const BASE_URL="https://backend-servcie-586n.onrender.com/api/v1/";
 
 // DESIGN PATTERN SOLVING A DESIGN PROBLEM
@@ -35,10 +36,12 @@ const handleRequestError=async (response,errorMessage) => {
     return;
   }
 
-  if(response.status===401) {
-    return await response.json();
+  if(response.status===500) {
+    return 'Internal Server Error Try Again Later'
   }
-  return response;
+
+  const error=await response.json()
+  return error.message
 };
 
 const makeRequest=async (method,path,data) => {
@@ -51,12 +54,15 @@ const makeRequest=async (method,path,data) => {
     body: data? JSON.stringify(data):undefined,
   });
 
-  await handleRequestError(response,"error");
+  const error=await handleRequestError(response,"error");
 
+  if(error) {
+    console.log(error.message)
+    return error
+  }
   try {
     return await response.json();
   } catch {
-    console.log(response.json())
     return response;
   }
 };
