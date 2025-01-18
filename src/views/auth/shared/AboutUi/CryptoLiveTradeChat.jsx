@@ -441,5 +441,4 @@ export const CryptoLiveTradeChat = () => {
     </div>
   );
 };
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<CryptoLiveTradeChat />);
+
