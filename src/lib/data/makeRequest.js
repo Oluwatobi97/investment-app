@@ -1,6 +1,5 @@
 
 const BASE_URL="https://backend-servcie-586n.onrender.com/api/v1/";
-
 // DESIGN PATTERN SOLVING A DESIGN PROBLEM
 
 // const signOut = () => {
